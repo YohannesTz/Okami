@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_theme"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_light_theme"
+        android:visible="true"
+        app:showAsAction="never"
+        android:title="ChangeTheme" />
+
+    <item
+        android:id="@+id/change_layout"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_change_layout"
+        android:visible="true"
+        app:showAsAction="never"
+        android:title="ChangeLayout" />
+
+
+    <item
+        android:id="@+id/search_button"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_search"
+        android:visible="true"
+        app:showAsAction="always"
+        android:title="ChangeTheme" />
+</menu>
