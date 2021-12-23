@@ -9,7 +9,7 @@ import com.yohannes.dev.app.okami.fragments.ListingFragment
 
 class TabLayoutAdapter(fragmentManager: FragmentManager, lifecycle:Lifecycle) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
-    private val ITEM_SIZE = 3
+    private val ITEM_SIZE = 2
 
     override fun getItemCount(): Int {
         return ITEM_SIZE

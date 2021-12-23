@@ -60,6 +60,8 @@
     <color name="md_blue_A400">#2979FF</color>
 
     <color name="md_red_500">#F44336</color>
+    <color name="colorTextInverted">#ffffff</color>
+    <color name="colorBackground">#ffffff</color>
 
     <!-- other colors -->
     <color name="colorPlaceHolder">#dedede</color>

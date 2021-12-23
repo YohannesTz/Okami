@@ -1,11 +1,18 @@
 package com.yohannes.dev.app.okami.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.ViewCompat
+import androidx.fragment.app.FragmentActivity
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.yohannes.dev.app.okami.R
+import com.yohannes.dev.app.okami.activities.DetailActivity
 import com.yohannes.dev.app.okami.databinding.ListItemBinding
 import com.yohannes.dev.app.okami.models.Data
 
@@ -38,6 +45,14 @@ class AnimePagedAdapter:PagingDataAdapter<Data, AnimePagedAdapter.MyViewHolder>(
             val status = currentItem?.attributes?.status
             mediaStatus.text = "($status)"
             jptitle.text = currentItem?.attributes?.titles?.jaJp
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailActivity::class.java)
+            //val options = ActivityOptionsCompat.makeSceneTransitionAnimation(holder.itemView.context, holder.binding.poster, "poster_image")
+            ViewCompat.setTransitionName(holder.binding.poster, "poster_image")
+            intent.putExtra("currentItem", currentItem)
+            holder.itemView.context.startActivity(intent)
         }
     }
 

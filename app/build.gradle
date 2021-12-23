@@ -67,12 +67,19 @@ dependencies {
     //dagger-hilt
     implementation "com.google.dagger:hilt-android:2.40.4"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.preference:preference:1.1.1'
     kapt "com.google.dagger:hilt-android-compiler:2.40.4"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     //coil
     implementation("io.coil-kt:coil:1.1.1")
+
+    //youtube library
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+
+    //expandable textview
+    implementation 'io.github.glailton.expandabletextview:expandabletextview:1.0.1'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -28,6 +28,7 @@
                 android:layout_gravity="start"
                 android:background="@color/colorPlaceHolder"
                 android:scaleType="centerCrop"
+                android:transitionName="poster_image"
                 android:contentDescription="Poster" />
 
         </FrameLayout>

@@ -1,6 +1,7 @@
 package com.yohannes.dev.app.okami.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Titles(
     @SerializedName("ja_jp")
@@ -9,4 +10,4 @@ data class Titles(
     val engUs: String?,
     @SerializedName("en_jp")
     val enJp: String?
-)
+): Serializable

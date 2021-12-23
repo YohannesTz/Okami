@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_container"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -15,6 +16,7 @@
         android:minHeight="?attr/actionBarSize"
         app:menu="@menu/appbarmenu"
         app:title="@string/app_name"
+        android:elevation="1dp"
         android:theme="?attr/actionBarTheme" />
 
     <com.google.android.material.tabs.TabLayout
@@ -27,6 +29,7 @@
         app:tabIndicatorFullWidth="false"
         app:tabIndicatorHeight="3dp"
         app:tabMode="auto"
+        android:elevation="1dp"
         app:tabSelectedTextColor="@color/md_black_1000_87"
         app:tabTextAppearance="@style/NavigationTabTextAppearance"
         app:tabTextColor="@color/md_black_1000_38"
