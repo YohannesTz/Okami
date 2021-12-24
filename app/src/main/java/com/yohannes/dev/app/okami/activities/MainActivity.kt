@@ -7,17 +7,20 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.yohannes.dev.app.okami.R
 import com.yohannes.dev.app.okami.adapter.TabLayoutAdapter
 import com.yohannes.dev.app.okami.databinding.ActivityMainBinding
 import com.yohannes.dev.app.okami.util.Constants
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+    var currentTab:Int = 0
     val titlesArray = arrayOf(
         "Anime",
         "Manga",
@@ -33,6 +36,25 @@ class MainActivity : AppCompatActivity() {
 
         val viewPager = binding.pager
         val tabLayout = binding.tabLayout
+
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                currentTab = tabLayout.selectedTabPosition
+                Log.e("TabPos", currentTab.toString())
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                currentTab = tabLayout.selectedTabPosition
+                Log.e("TabPos", currentTab.toString())
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                currentTab = tabLayout.selectedTabPosition
+                Log.e("TabPos", currentTab.toString())
+            }
+
+        })
 
         val adapter = TabLayoutAdapter(supportFragmentManager, lifecycle)
         viewPager.adapter = adapter
@@ -61,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.search_button -> {
                 val intent = Intent(this, SearchActivity::class.java)
+                intent.putExtra("pos", currentTab)
                 startActivity(intent)
             }
         }

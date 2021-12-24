@@ -6,17 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".activities.SearchActivity">
 
-    <SearchView
+    <!-- <SearchView
         android:id="@+id/searchView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="16dp"
         android:background="#55F5F5F5"
         android:elevation="1dp"
         android:queryHint="Search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /> -->
+
+    <EditText
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:background="@drawable/rounded_corners"
+        android:elevation="1dp"
+        android:queryHint="Search"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="2dp"
+        android:singleLine="true"
+        android:imeOptions="actionGo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

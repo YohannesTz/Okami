@@ -84,7 +84,7 @@ class DetailActivity : AppCompatActivity() {
                 val intent = Intent()
                 intent.action = Intent.ACTION_SEND
                 intent.type = "text/plain"
-                intent.putExtra(Intent.EXTRA_TEXT, "Hi check out this ${passedItem.type}! \n \n https://kitsu.io/api/edge/anime/${passedItem.id}" )
+                intent.putExtra(Intent.EXTRA_TEXT, "Hi check out this ${passedItem.type}! \n \n https://kitsu.io/anime/${passedItem.id}" )
                 startActivity(Intent.createChooser(intent, "Share with:"))
             }
         }

@@ -36,7 +36,6 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
             loadAnimeData()
         } else if (listingType == ListingType.CHARACTER){
             loadCharacterData()
-            //loadAnimeData()
         } else {
             loadMangaData()
         }

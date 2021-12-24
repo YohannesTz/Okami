@@ -10,7 +10,8 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
@@ -25,9 +26,9 @@
         android:id="@+id/jap_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        tools:text="キスシス" />
+        tools:text="Anime" />
 
 </LinearLayout>

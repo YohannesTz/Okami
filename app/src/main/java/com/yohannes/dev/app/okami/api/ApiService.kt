@@ -16,4 +16,10 @@ interface ApiService {
 
     @GET(Constants.CHARACTER_ENDPOINT)
     suspend fun getCharacter(@Query("page[limit]") pageLimit: Int, @Query("page[offset]") offset: Int) : Response<CharacterResponse>
+
+    @GET(Constants.ANIME_ENDPOINT)
+    suspend fun searchAnime(@Query("filter[text]") query: String): Response<ResponseApi>
+
+    @GET(Constants.MANGA_ENDPOINT)
+    suspend fun searchManga(@Query("filter[text]") query: String):Response<ResponseApi>
 }
