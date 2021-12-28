@@ -13,7 +13,7 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="Theme.CustomSplashScreenTheme" parent="Theme.SplashScreen">
+    <style name="CustomSplashScreenTheme" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/japaneese_background</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_japaneese</item>
         <item name="windowSplashScreenAnimationDuration">2000</item>
