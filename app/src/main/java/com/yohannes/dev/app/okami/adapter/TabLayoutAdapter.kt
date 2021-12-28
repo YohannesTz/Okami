@@ -18,9 +18,12 @@ class TabLayoutAdapter(fragmentManager: FragmentManager, lifecycle:Lifecycle) : 
     override fun createFragment(position: Int): Fragment {
         if (position == 0) {
             return ListingFragment(ListingType.ANIME)
-        } else if (position == 1)
+        } else if (position == 1) {
             return ListingFragment(ListingType.MANGA)
-        return ListingFragment(ListingType.CHARACTER)
+        } else if (position == 2) {
+            return ListingFragment(ListingType.CHARACTER)
+        }
+        return ListingFragment(ListingType.TRENDING_ANIME)
     }
 
 }

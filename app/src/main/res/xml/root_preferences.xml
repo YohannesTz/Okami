@@ -16,7 +16,7 @@
             app:entryValues="@array/items_per_page"
             app:key="items_per_page"
             app:title="Items per page"
-            app:useSimpleSummaryProvider="true" /> -->
+            app:useSimpleSummaryProvider="true" />
 
         <ListPreference
             app:defaultValue="Light"
@@ -24,7 +24,7 @@
             app:entryValues="@array/theme"
             app:key="theme"
             app:title="Theme"
-            app:useSimpleSummaryProvider="true" />
+            app:useSimpleSummaryProvider="true" /> -->
 
         <SwitchPreferenceCompat
             app:key="send_analytics"
@@ -48,7 +48,7 @@
 
         <Preference
             app:title="Send feedback"
-            app:key="version"/>
+            app:key="send_feedback"/>
     </PreferenceCategory>
 
     <PreferenceCategory app:title="Contact Info">

@@ -7,8 +7,9 @@
     xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:focusable="true"
+    android:background="?attr/colorSurface"
     android:animateLayoutChanges="true"
-    tools:context=".activities.DetailActivity">
+    tools:context=".activities.OpenActivity">
 
     <ScrollView
         android:id="@+id/details_scroll"
@@ -327,53 +328,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/grid_info"/>
-
-            <!--<com.google.android.exoplayer2.ui.PlayerView
-                android:id="@+id/exoPlayerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/opening" />
-
-            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-                android:id="@+id/youtube_player_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                app:autoPlay="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/opening" /> -->
-
-            <!-- <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/preview"
-                android:layout_width="0dp"
-                android:layout_height="300dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:background="@color/colorPlaceHolder"
-                android:elevation="4dp"
-                android:scaleType="centerCrop"
-                android:transitionName="poster_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/opening"
-                app:shapeAppearanceOverlay="@style/circleImageView" />
-
-            <com.google.android.youtube.player.YouTubePlayerView
-                android:id="@+id/yt_pv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/opening"
-                app:shapeAppearanceOverlay="@style/circleImageView"/> -->
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/preview"

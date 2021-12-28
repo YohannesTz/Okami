@@ -13,6 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yohannes.dev.app.okami.adapter.AnimePagedAdapter
 import com.yohannes.dev.app.okami.adapter.CharacterPagedAdapter
+import com.yohannes.dev.app.okami.adapter.SearchAdapter
+import com.yohannes.dev.app.okami.models.Data
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
@@ -24,6 +26,10 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var animeAdapter: AnimePagedAdapter
+    private lateinit var searchAdapter: SearchAdapter
+
+    private lateinit var animeList: ArrayList<Data>
+
     private lateinit var characterAdapter: CharacterPagedAdapter
     private val viewModel by viewModels<AnimeViewModel>()
 
@@ -31,12 +37,14 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentListingBinding.inflate(inflater, container, false)
         val view = binding.root
-        setupRecyclerView()
         if (listingType == ListingType.ANIME) {
+            setupRecyclerView()
             loadAnimeData()
         } else if (listingType == ListingType.CHARACTER){
+            setupRecyclerView()
             loadCharacterData()
         } else {
+            setupRecyclerView()
             loadMangaData()
         }
         return view
@@ -65,6 +73,20 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
             viewModel.mangaData.collect{ pagingData ->
                 _binding!!.progressBar.visibility = View.INVISIBLE
                 animeAdapter.submitData(pagingData)
+            }
+        }
+    }
+
+    private fun loadTrending() {
+
+    }
+
+    private fun setupTrendingView() {
+        searchAdapter = SearchAdapter(animeList)
+        if (animeList.size > 0) {
+            binding.recyclerView.apply {
+                layoutManager = LinearLayoutManager(context)
+                adapter = searchAdapter
             }
         }
     }

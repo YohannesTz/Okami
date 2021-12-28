@@ -66,8 +66,6 @@ class SearchActivity : AppCompatActivity() {
                 timer.purge() //Removes all cancelled tasks from this timer's task queue.
             }
         })
-
-        //setupRecyelrview()
     }
 
     private fun setupRecyelrview() {

@@ -62,6 +62,7 @@
     <color name="md_red_500">#F44336</color>
     <color name="colorTextInverted">#ffffff</color>
     <color name="colorBackground">#ffffff</color>
+    <color name="japaneese_background">#4C4C4C</color>
 
     <!-- other colors -->
     <color name="colorPlaceHolder">#dedede</color>

@@ -10,6 +10,7 @@ import com.yohannes.dev.app.okami.paging.AnimePagingSource
 import com.yohannes.dev.app.okami.paging.CharacterPagingSource
 import com.yohannes.dev.app.okami.paging.MangaPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,4 +27,6 @@ class AnimeViewModel
     val characterData = Pager(PagingConfig(pageSize = 1)) {
         CharacterPagingSource(apiService)
     }.flow.cachedIn(viewModelScope)
+
+
 }

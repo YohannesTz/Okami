@@ -13,6 +13,13 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
+    <style name="Theme.CustomSplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/japaneese_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_japaneese</item>
+        <item name="windowSplashScreenAnimationDuration">2000</item>
+        <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
+    </style>
+
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5dp</item>
