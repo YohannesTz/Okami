@@ -23,7 +23,7 @@ class PlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
 
         passedVideoId = intent.getStringExtra("videoId") as String
         //doesn't work don't waste your time
-        binding.ytPv.initialize("AIzaSyDSD5N5rKR5WG8NrhAaAjU9J5DGrxgC7XI", this)
+        binding.ytPv.initialize(getString(R.string.apiKey), this)
     }
 
     override fun onInitializationSuccess(
