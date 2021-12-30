@@ -24,3 +24,21 @@ icons from [Icons8](https://icons8.com/)
     <img src="/preview/Screenshot_20211230_201524.png" width="30%" height="30%" alt="screenshot">
     <img src="/preview/Screenshot_20211230_202149.png" width="30%" height="30%" alt="screenshot">
 </p>
+
+<table>
+    <td>
+       <img src="/preview/Screenshot_20211230_201400.png" width="30%" height="30%" alt="screenshot"> 
+    </td>
+    <td>
+       <img src="/preview/Screenshot_20211230_201429.png" width="30%" height="30%" alt="screenshot"> 
+    </td>
+    <td>
+       <img src="/preview/Screenshot_20211230_201459.png" width="30%" height="30%" alt="screenshot"> 
+    </td>
+    <td>
+       <img src="/preview/Screenshot_20211230_201524.png" width="30%" height="30%" alt="screenshot"> 
+    </td>
+    <td>
+       <img src="/preview/Screenshot_20211230_202149.png" width="30%" height="30%" alt="screenshot"> 
+    </td>
+</table>
