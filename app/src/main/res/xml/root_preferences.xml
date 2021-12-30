@@ -8,6 +8,7 @@
 
         <SwitchPreferenceCompat
             app:key="notifications"
+            app:enabled="true"
             app:title="Enable push notifications"/>
 
         <!-- <ListPreference
@@ -29,6 +30,7 @@
         <SwitchPreferenceCompat
             app:key="send_analytics"
             app:title="Send analaytics"
+            app:enabled="true"
             app:summary="Analytics help me to make the app better"/>
 
     </PreferenceCategory>
@@ -44,7 +46,7 @@
             app:key="me"
             app:title="Me"
             app:persistent="false"
-            app:summary="hi I am yohannes, a computer science student.I am a mobile and web developer and I am passionate about technology. I love collaborating and making connections.I am open to internships and remote jobs.Please feel free also to message me"/>
+            app:summary="hi I am yohannes, a computer science student.I am a mobile and web developer, I am passionate about technology. \nI love collaborating and making connections.I am open to internships and remote jobs.Please feel free also to message me"/>
 
         <Preference
             app:title="Send feedback"
