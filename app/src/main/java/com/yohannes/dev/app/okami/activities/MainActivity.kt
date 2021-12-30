@@ -84,6 +84,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.search_button -> {
+                //don't uncomment unless you want to test crashlytics
+                //throw RuntimeException("This is a test crash")
                 val intent = Intent(this, SearchActivity::class.java)
                 intent.putExtra("pos", currentTab)
                 startActivity(intent)

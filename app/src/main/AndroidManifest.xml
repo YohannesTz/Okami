@@ -3,6 +3,7 @@
     package="com.yohannes.dev.app.okami">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <queries>
         <intent>
@@ -17,6 +18,16 @@
         android:roundIcon="@mipmap/ic_launcher_japaneese_round"
         android:supportsRtl="true"
         android:theme="@style/CustomSplashScreenTheme">
+
+        <service
+            android:name=".util.MyFirebaseMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
 
         <activity
             android:theme="@style/AppTheme.NoActionBar"
@@ -51,7 +62,6 @@
             android:name=".activities.DetailActivity"
             android:exported="true" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
             android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
