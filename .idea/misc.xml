@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/circle_shape_overlay.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/custom_tab_indicator.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/ic_arrow_back.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.13518518518518519" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/ic_round_details_star_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_round_edit_24.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/ic_round_group_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_round_keyboard_arrow_up_24.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/ic_round_rss_feed_24.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/ic_round_timer_24.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/ic_round_trending_up_24.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/drawable/score_background.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_open.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_player.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.175" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.175" />
+        <entry key="app/src/main/res/layout/fragment_listing.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_preview_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/search_list_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/settings_activity.xml" value="0.175" />
+        <entry key="app/src/main/res/menu/appbarmenu.xml" value="0.175" />
+        <entry key="app/src/main/res/menu/details_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/player_menu.xml" value="0.175" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_japaneese.xml" value="0.19114583333333332" />
+        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
