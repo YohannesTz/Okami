@@ -10,7 +10,6 @@ import android.graphics.Color
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat.IMPORTANCE_HIGH
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.yohannes.dev.app.okami.activities.MainActivity
@@ -31,27 +30,51 @@ class MyFirebaseMessageService: FirebaseMessagingService() {
             createNotificationChannel(notificationManager)
         }
 
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, FLAG_ONE_SHOT)
-        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle(p0.data["title"])
-            .setContentText(p0.data["message"])
-            .setAutoCancel(true)
-            .setContentIntent(pendingIntent)
-            .build()
+        if(p0.data.size > 0) {
 
-        notificationManager.notify(notificationId, notification)
+            val title = p0.data["title"]
+            val message = p0.data["message"]
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            val pendingIntent = PendingIntent.getActivity(this, 0, intent, FLAG_ONE_SHOT)
+            val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
+                .build()
+
+            notificationManager.notify(notificationId, notification)
+        } else {
+            val title = p0.notification!!.title
+            val message = p0.notification!!.body
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            val pendingIntent = PendingIntent.getActivity(this, 0, intent, FLAG_ONE_SHOT)
+            val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
+                .build()
+
+            notificationManager.notify(notificationId, notification)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel(notificationManager: NotificationManager) {
         val channelName = "channelName"
-        val channel = NotificationChannel(CHANNEL_ID, channelName, IMPORTANCE_HIGH).apply {
+        val channel = NotificationChannel(CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_HIGH).apply {
             description = "My channel description"
             enableLights(true)
             lightColor = Color.GREEN
         }
 
         notificationManager.createNotificationChannel(channel)
+    }
+
+    override fun onNewToken(p0: String) {
+        super.onNewToken(p0)
     }
 }

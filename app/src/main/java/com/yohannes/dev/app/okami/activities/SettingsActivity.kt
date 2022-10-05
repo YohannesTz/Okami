@@ -37,15 +37,15 @@ class SettingsActivity : AppCompatActivity() {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
         }
 
-        override fun onPreferenceTreeClick(preference: Preference?): Boolean {
-            return if (preference?.key == "send_feedback") {
+        override fun onPreferenceTreeClick(preference: Preference): Boolean {
+            return if (preference.key == "send_feedback") {
                 val emailIntent = Intent(Intent.ACTION_SENDTO)
-                emailIntent.setData(Uri.parse("mailto:"))
+                emailIntent.data = Uri.parse("mailto:")
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, Constants.EMAIL_ADDRESS)
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Personal feedback")
                 startActivity(Intent.createChooser(emailIntent, "Send Email"))
                 true
-            } else if (preference?.key == "telegram") {
+            } else if (preference.key == "telegram") {
                 val uri = Uri.parse(Constants.TELEGRAM_ADDRESS)
 
                 val intent = Intent(Intent.ACTION_VIEW, uri)

@@ -45,7 +45,6 @@ class AnimePagedAdapter:PagingDataAdapter<Data, AnimePagedAdapter.MyViewHolder>(
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailActivity::class.java)
-            //val options = ActivityOptionsCompat.makeSceneTransitionAnimation(holder.itemView.context, holder.binding.poster, "poster_image")
             ViewCompat.setTransitionName(holder.binding.poster, "poster_image")
             intent.putExtra("currentItem", currentItem)
             holder.itemView.context.startActivity(intent)

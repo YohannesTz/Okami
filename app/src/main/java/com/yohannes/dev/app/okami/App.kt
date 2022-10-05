@@ -22,7 +22,6 @@ class App:Application() {
             // Get new FCM registration token
             val token = task.result
             Log.d("FirebaseMessaging", "this is the token {$token}")
-            Toast.makeText(baseContext, "this is the token {$token}", Toast.LENGTH_SHORT).show()
         })
     }
 }
