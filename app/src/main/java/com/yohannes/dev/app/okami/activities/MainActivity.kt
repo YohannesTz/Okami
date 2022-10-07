@@ -2,11 +2,11 @@ package com.yohannes.dev.app.okami.activities
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -15,14 +15,13 @@ import com.yohannes.dev.app.okami.adapter.TabLayoutAdapter
 import com.yohannes.dev.app.okami.databinding.ActivityMainBinding
 import com.yohannes.dev.app.okami.util.Constants
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     var currentTab:Int = 0
-    val titlesArray = arrayOf(
+    private val titlesArray = arrayOf(
         "Anime",
         "Manga",
         "Characters"
@@ -55,7 +54,6 @@ class MainActivity : AppCompatActivity() {
                 currentTab = tabLayout.selectedTabPosition
                 Log.e("TabPos", currentTab.toString())
             }
-
         })
 
         val adapter = TabLayoutAdapter(supportFragmentManager, lifecycle)
@@ -74,7 +72,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.settings_menu -> {
-                Log.e("MENU", "SETTINGS CLICKED")
                 val intent = Intent(this, SettingsActivity::class.java)
                 startActivity(intent)
             }
@@ -84,8 +81,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.search_button -> {
-                //don't uncomment unless you want to test crashlytics
-                //throw RuntimeException("This is a test crash")
                 val intent = Intent(this, SearchActivity::class.java)
                 intent.putExtra("pos", currentTab)
                 startActivity(intent)

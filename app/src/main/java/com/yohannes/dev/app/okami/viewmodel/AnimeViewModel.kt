@@ -27,6 +27,4 @@ class AnimeViewModel
     val characterData = Pager(PagingConfig(pageSize = 1)) {
         CharacterPagingSource(apiService)
     }.flow.cachedIn(viewModelScope)
-
-
 }
