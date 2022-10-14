@@ -22,4 +22,6 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_github">Github</string>
     <string name="menu_search">Search</string>
+    <string name="posterImageDesc">Poster Image for current Anime or Manga</string>
+    <string name="errorText">Error Loading data…</string>
 </resources>

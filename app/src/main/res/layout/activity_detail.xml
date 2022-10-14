@@ -8,7 +8,6 @@
     android:focusable="true"
     tools:context=".activities.DetailActivity">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -198,41 +197,41 @@
                 app:layout_constraintTop_toBottomOf="@id/stats">
 
                 <TextView
-                    style="@style/Text.Clickable.Borderless"
                     android:id="@+id/rank_text"
+                    style="@style/Text.Clickable.Borderless"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="# 24"
                     android:textColor="?attr/colorControlNormal"
-                    tools:ignore="HardcodedText"
-                    app:drawableTopCompat="@drawable/ic_baseline_favorite_24" />
+                    app:drawableTopCompat="@drawable/ic_baseline_favorite_24"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
 
                 <TextView
-                    style="@style/Text.Clickable.Borderless"
                     android:id="@+id/members_text"
+                    style="@style/Text.Clickable.Borderless"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="116,329"
                     android:textColor="?attr/colorControlNormal"
-                    tools:ignore="HardcodedText"
-                    app:drawableTopCompat="@drawable/ic_round_group_24" />
+                    app:drawableTopCompat="@drawable/ic_round_group_24"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
                 <TextView
-                    style="@style/Text.Clickable.Borderless"
                     android:id="@+id/popularity_text"
+                    style="@style/Text.Clickable.Borderless"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="# 1096"
                     android:textColor="?attr/colorControlNormal"
-                    tools:ignore="HardcodedText"
-                    app:drawableTopCompat="@drawable/ic_round_trending_up_24" />
+                    app:drawableTopCompat="@drawable/ic_round_trending_up_24"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
             </LinearLayout>
 
@@ -294,6 +293,47 @@
                     android:textColor="?attr/colorControlNormal"
                     tools:ignore="HardcodedText" />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="@dimen/text_margin"
+                    android:text="Age Rating"
+                    android:textColor="?attr/colorControlNormal"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/age_rating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="@dimen/text_margin"
+                    android:text="R"
+                    android:textColor="?attr/colorControlNormal"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="@dimen/text_margin"
+                    android:text="Age Rating Guide"
+                    android:textColor="?attr/colorControlNormal"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/age_rating_guide"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="@dimen/text_margin"
+                    android:text="17+"
+                    android:textColor="?attr/colorControlNormal"
+                    tools:ignore="HardcodedText" />
             </GridLayout>
 
             <TextView
@@ -334,9 +374,39 @@
                     android:layout_marginBottom="16dp"
                     android:background="@color/colorPlaceHolder"
                     android:elevation="4dp"
+                    app:shapeAppearanceOverlay="@style/customRoundedImageView"
                     android:scaleType="centerCrop"
                     android:transitionName="poster_image" />
             </FrameLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/detail_tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:elevation="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/preview_layout"
+                app:tabBackground="?attr/colorPrimary"
+                app:tabIndicator="@drawable/custom_tab_indicator"
+                app:tabIndicatorColor="@color/colorAccent"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="3dp"
+                app:tabMode="auto"
+                app:tabSelectedTextColor="@color/md_black_1000_87"
+                app:tabTextAppearance="@style/NavigationTabTextAppearance"
+                app:tabTextColor="?attr/colorAccent"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/details_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_tablayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

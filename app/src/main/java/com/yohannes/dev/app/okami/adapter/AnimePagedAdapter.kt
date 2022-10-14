@@ -1,5 +1,6 @@
 package com.yohannes.dev.app.okami.adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ class AnimePagedAdapter:PagingDataAdapter<Data, AnimePagedAdapter.MyViewHolder>(
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = getItem(position)
         holder.binding.apply {

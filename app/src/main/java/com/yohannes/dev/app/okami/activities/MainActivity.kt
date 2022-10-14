@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         val viewPager = binding.pager
         val tabLayout = binding.tabLayout
 
-
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 currentTab = tabLayout.selectedTabPosition

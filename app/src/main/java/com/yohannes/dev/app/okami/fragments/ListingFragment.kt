@@ -1,64 +1,81 @@
 package com.yohannes.dev.app.okami.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import com.yohannes.dev.app.okami.databinding.FragmentListingBinding
-import com.yohannes.dev.app.okami.enums.ListingType
-import com.yohannes.dev.app.okami.viewmodel.AnimeViewModel
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yohannes.dev.app.okami.adapter.AnimePagedAdapter
 import com.yohannes.dev.app.okami.adapter.CharacterPagedAdapter
-import com.yohannes.dev.app.okami.adapter.SearchAdapter
-import com.yohannes.dev.app.okami.models.Data
+import com.yohannes.dev.app.okami.databinding.FragmentListingBinding
+import com.yohannes.dev.app.okami.enums.ListingType
+import com.yohannes.dev.app.okami.viewmodel.AnimeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.flow.collect
+
+private const val argOne = "LISTING_TYPE"
 
 @AndroidEntryPoint
-class ListingFragment(private val listingType: ListingType) : Fragment() {
+class ListingFragment() : Fragment() {
 
     private var _binding: FragmentListingBinding? = null
     private val binding get() = _binding!!
+    private var listingType:String? = null
 
     private lateinit var animeAdapter: AnimePagedAdapter
     private lateinit var characterAdapter: CharacterPagedAdapter
     private val viewModel by viewModels<AnimeViewModel>()
 
+    companion object {
+        /**
+         * @param listingType The type of listing this fragment was supposed to show.
+         * @return A new instance of fragment BlankFragment.
+         */
+        @JvmStatic
+        fun newInstance(listingType: ListingType) =
+            ListingFragment().apply {
+                arguments = Bundle().apply {
+                    putString(argOne, listingType.toString())
+                }
+            }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentListingBinding.inflate(inflater, container, false)
         val view = binding.root
+        arguments?.let {
+            listingType = it.getString(argOne)
+        }
+        setupRecyclerView()
         when (listingType) {
-            ListingType.ANIME -> {
-                setupRecyclerView()
+            ListingType.ANIME.toString() -> {
                 loadAnimeData()
             }
-            ListingType.CHARACTER -> {
-                setupRecyclerView()
+            ListingType.CHARACTER.toString() -> {
                 loadCharacterData()
             }
             else -> {
-                setupRecyclerView()
                 loadMangaData()
             }
         }
 
         _binding!!.swipeContainer.setOnRefreshListener {
             when (listingType) {
-                ListingType.ANIME -> {
+                ListingType.ANIME.toString() -> {
                     refreshAnimeAdapter()
                 }
-                ListingType.CHARACTER -> {
+                ListingType.CHARACTER.toString() -> {
                     refreshCharacterAdapter()
                 }
                 else -> {
-                    refreshCharacterAdapter()
+                    refreshMangaAdapter()
                 }
             }
         }
@@ -71,6 +88,11 @@ class ListingFragment(private val listingType: ListingType) : Fragment() {
         _binding!!.swipeContainer.isRefreshing = false
     }
 
+    private fun refreshMangaAdapter() {
+        animeAdapter.refresh()
+        _binding!!.swipeContainer.isRefreshing = false
+    }
+
     private fun refreshAnimeAdapter() {
         animeAdapter.refresh()
         _binding!!.swipeContainer.isRefreshing = false
@@ -78,29 +100,59 @@ class ListingFragment(private val listingType: ListingType) : Fragment() {
 
     private fun loadCharacterData() {
         lifecycleScope.launch {
-            viewModel.characterData.collect{ pagingData ->
-                characterAdapter.submitData(pagingData)
-            }
+            viewModel
+                .characterData
+                .onStart {
+                    _binding!!.progressBar.visibility = View.VISIBLE
+                }
+                .catch {
+                    _binding!!.progressBar.visibility = View.GONE
+                    _binding!!.swipeContainer.visibility = View.GONE
+                    _binding!!.errorText.visibility = View.VISIBLE
+                }
+                .collect{ pagingData ->
+                    _binding!!.progressBar.visibility = View.GONE
+                    characterAdapter.submitData(pagingData)
+                }
         }
-        _binding!!.progressBar.visibility = View.GONE
     }
 
     private fun loadAnimeData() {
         lifecycleScope.launch {
-            viewModel.listData.collect{ pagingData ->
-                animeAdapter.submitData(pagingData)
-            }
+            viewModel
+                .listData
+                .onStart {
+                    _binding!!.progressBar.visibility = View.VISIBLE
+                }
+                .catch {
+                    _binding!!.progressBar.visibility = View.GONE
+                    _binding!!.swipeContainer.visibility = View.GONE
+                    _binding!!.errorText.visibility = View.VISIBLE
+                }
+                .collect{ pagingData ->
+                    _binding!!.progressBar.visibility = View.GONE
+                    animeAdapter.submitData(pagingData)
+                }
         }
-        _binding!!.progressBar.visibility = View.GONE
     }
 
     private fun loadMangaData() {
         lifecycleScope.launch {
-            viewModel.mangaData.collect{ pagingData ->
-                animeAdapter.submitData(pagingData)
-            }
+            viewModel
+                .mangaData
+                .onStart {
+                    _binding!!.progressBar.visibility = View.VISIBLE
+                }
+                .catch {
+                    _binding!!.progressBar.visibility = View.GONE
+                    _binding!!.swipeContainer.visibility = View.GONE
+                    _binding!!.errorText.visibility = View.VISIBLE
+                }
+                .collect{ pagingData ->
+                    _binding!!.progressBar.visibility = View.GONE
+                    animeAdapter.submitData(pagingData)
+                }
         }
-        _binding!!.progressBar.visibility = View.GONE
     }
 
     private fun setupRecyclerView() {

@@ -51,7 +51,7 @@ class SettingsActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
                 true
-            }else if (preference?.key == "github") {
+            }else if (preference.key == "github") {
                 val uri = Uri.parse(Constants.GITHUB_ADDRESS)
 
                 val intent = Intent(Intent.ACTION_VIEW, uri)

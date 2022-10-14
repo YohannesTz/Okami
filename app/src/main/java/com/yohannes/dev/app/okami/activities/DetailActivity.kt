@@ -37,7 +37,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.poster.load(imageLink) {
             crossfade(true)
-            crossfade(800)
+            crossfade(500)
         }
 
         binding.mainTitle.text = passedItem.attributes.canonicalTitle
@@ -47,6 +47,8 @@ class DetailActivity : AppCompatActivity() {
         binding.synopsis.text = passedItem.attributes.description
         binding.rankText.text = passedItem.attributes.favoritesCount.toString()
         binding.membersText.text = passedItem.attributes.userCount.toString()
+        binding.ageRatingGuide.text = passedItem.attributes.ageRatingGuide.toString()
+        binding.ageRating.text = passedItem.attributes.ageRating.toString()
         binding.popularityText.text = passedItem.attributes.ratingRank.toString()
         binding.startDate.text = passedItem.attributes.startDate
         binding.endDate.text = passedItem.attributes.endDate

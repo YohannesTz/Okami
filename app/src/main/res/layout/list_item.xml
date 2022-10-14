@@ -19,17 +19,15 @@
         <FrameLayout
             android:id="@+id/poster_container"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:transitionName="shared_poster_container">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/poster"
                 android:layout_width="93dp"
                 android:layout_height="130dp"
                 android:layout_gravity="start"
                 android:background="@color/colorPlaceHolder"
-                android:scaleType="centerCrop"
                 android:transitionName="poster_image"
-                android:contentDescription="Poster" />
+                android:contentDescription="@string/posterImageDesc" />
 
         </FrameLayout>
 
