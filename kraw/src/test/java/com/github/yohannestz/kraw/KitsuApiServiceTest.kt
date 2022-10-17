@@ -14,7 +14,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getAnimeList()
+                    val response = apiService.getAnimeList(offset = 0)
                     assert(response.isSuccessful)
                     val animeCollection = response.body()!!.data
                     print("animeSize: " + animeCollection.size.toString())
@@ -49,7 +49,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getEpisodeList()
+                    val response = apiService.getEpisodeList(offset = 0)
                     assert(response.isSuccessful)
                     val episode = response.body()!!.data
                     print("episodeSize: ${episode.size}")
@@ -83,7 +83,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getTrendingAnimeList()
+                    val response = apiService.getTrendingAnimeList(offset = 0)
                     assert(response.isSuccessful)
                     val trendingAnimeList = response.body()!!.data
                     assert(trendingAnimeList.isNotEmpty())
@@ -100,7 +100,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getMangaList()
+                    val response = apiService.getMangaList(offset = 0)
                     assert(response.isSuccessful)
                     val mangaList = response.body()!!.data
                     assert(mangaList.isNotEmpty())
@@ -134,7 +134,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getChapterList()
+                    val response = apiService.getChapterList(offset = 0)
                     assert(response.isSuccessful)
                     val chapterList = response.body()!!.data
                     assert(chapterList.isNotEmpty())
@@ -168,7 +168,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getTrendingMangaList()
+                    val response = apiService.getTrendingMangaList(offset = 0)
                     assert(response.isSuccessful)
                     val mangaList = response.body()!!.data
                     assert(mangaList.isNotEmpty())
@@ -185,7 +185,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getCategoriesList()
+                    val response = apiService.getCategoriesList(offset = 0)
                     assert(response.isSuccessful)
                     val categoryList = response.body()!!.data
                     print(categoryList.size.toString())
@@ -219,7 +219,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getCategoryFavoriteList()
+                    val response = apiService.getCategoryFavoriteList(offset = 0)
                     assert(response.isSuccessful)
                     val categoryFavList = response.body()!!.data
                     assert(categoryFavList.isNotEmpty())
@@ -252,7 +252,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getMediaRelationshipList()
+                    val response = apiService.getMediaRelationshipList(offset = 0)
                     assert(response.isSuccessful)
                     val mediaRelationshipList = response.body()!!.data
                     assert(mediaRelationshipList.isNotEmpty())
@@ -352,7 +352,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getStreamerList()
+                    val response = apiService.getStreamerList(offset = 0)
                     assert(response.isSuccessful)
                     val streamersList = response.body()!!.data
                     assert(streamersList.isNotEmpty())
@@ -385,7 +385,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getUserList()
+                    val response = apiService.getUserList(offset = 0)
                     assert(response.isSuccessful)
                     val userList = response.body()!!.data
                     assert(userList.isNotEmpty())
@@ -418,7 +418,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getLibraryEntryList()
+                    val response = apiService.getLibraryEntryList(offset = 0)
                     assert(response.isSuccessful)
                     val libList = response.body()!!.data
                     assert(libList.isNotEmpty())
@@ -450,7 +450,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getLibraryEntryLogList()
+                    val response = apiService.getLibraryEntryLogList(offset = 0)
                     assert(response.isSuccessful)
                     val libEntryLogList = response.body()!!.data
                     assert(libEntryLogList.isNotEmpty())
@@ -483,7 +483,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getLibraryEventList()
+                    val response = apiService.getLibraryEventList(offset = 0)
                     assert(response.isSuccessful)
                     val libEventList = response.body()!!.data
                     assert(libEventList.isNotEmpty())
@@ -549,7 +549,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getPostList()
+                    val response = apiService.getPostList(offset = 0)
                     assert(response.isSuccessful)
                     val postList = response.body()!!.data
                     assert(postList.isNotEmpty())
@@ -582,7 +582,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getCommentList()
+                    val response = apiService.getCommentList(offset = 0)
                     assert(response.isSuccessful)
                     val commentList = response.body()!!.data
                     assert(commentList.isNotEmpty())
@@ -615,7 +615,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getAnimeCharacterList()
+                    val response = apiService.getAnimeCharacterList(offset = 0)
                     assert(response.isSuccessful)
                     val animeCharacterList = response.body()!!.data
                     assert(animeCharacterList.isNotEmpty())
@@ -649,7 +649,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getMangaCharacterList()
+                    val response = apiService.getMangaCharacterList(offset = 0)
                     assert(response.isSuccessful)
 
                     val mangaCharacterList = response.body()!!.data
@@ -719,7 +719,7 @@ class KitsuApiServiceTest {
         runBlocking {
             launch {
                 try {
-                    val response = apiService.getSiteAnnouncementList()
+                    val response = apiService.getSiteAnnouncementList(offset = 0)
                     assert(response.isSuccessful)
 
                     val siteAnnouncementList = response.body()!!.data
