@@ -1,5 +1,6 @@
-package com.github.yohannestz.kraw.models.models
+package com.github.yohannestz.kraw.models
 
+import com.github.yohannestz.kraw.models.Avatar
 import com.squareup.moshi.Json
 
 data class User(

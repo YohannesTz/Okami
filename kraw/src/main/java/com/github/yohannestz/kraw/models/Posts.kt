@@ -1,4 +1,4 @@
-package com.github.yohannestz.kraw.models.models
+package com.github.yohannestz.kraw.models
 
 data class Posts(
     val content: String?,

@@ -77,4 +77,69 @@ interface KitsuSerivce {
     @GET(Endpoints.STREAMERS_URL + "/{id}")
     suspend fun getStreamer(@Path("id") id: Int): Response<Resource>
 
+    @GET(Endpoints.USERS_URL)
+    suspend fun getUserList(): Response<Collection>
+
+    @GET(Endpoints.USERS_URL + "/{id}")
+    suspend fun getUser(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.LIBRARY_ENTRIES_URL)
+    suspend fun getLibraryEntryList(): Response<Collection>
+
+    @GET(Endpoints.LIBRARY_ENTRIES_URL + "/{id}")
+    suspend fun getLibraryEntry(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.LIBRARY_ENTRIES_LOGS_URL)
+    suspend fun getLibraryEntryLogList(): Response<Collection>
+
+    @GET(Endpoints.LIBRARY_ENTRIES_LOGS_URL + "/{id}")
+    suspend fun getLibraryEntryLog(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.LIBRARY_EVENTS_URL)
+    suspend fun getLibraryEventList(): Response<Collection>
+
+    @GET(Endpoints.LIBRARY_EVENTS_URL + "/{id}")
+    suspend fun getLibraryEvent(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.REVIEWS_URL)
+    suspend fun getReviewList(): Response<Collection>
+
+    @GET(Endpoints.REVIEWS_URL + "/{id}")
+    suspend fun getReview(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.POSTS_URL)
+    suspend fun getPostList(): Response<Collection>
+
+    @GET(Endpoints.POSTS_URL + "/{id}")
+    suspend fun getPost(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.COMMENTS_URL)
+    suspend fun getCommentList(): Response<Collection>
+
+    @GET(Endpoints.COMMENTS_URL + "/{id}")
+    suspend fun getComment(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.ANIME_CHARACTERS_URL)
+    suspend fun getAnimeCharacterList(): Response<Collection>
+
+    @GET(Endpoints.ANIME_CHARACTERS_URL + "/{id}")
+    suspend fun getAnimeCharacter(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.MANGA_CHARACTERS_URL)
+    suspend fun getMangaCharacterList(): Response<Collection>
+
+    @GET(Endpoints.MANGA_CHARACTERS_URL + "/{id}")
+    suspend fun getMangaCharacter(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.CHARACTERS_URL)
+    suspend fun getCharacterList(): Response<Collection>
+
+    @GET(Endpoints.CHARACTERS_URL + "/{id}")
+    suspend fun getCharacter(@Path("id") id: Int): Response<Resource>
+
+    @GET(Endpoints.SITE_ANNOUNCEMENTS_URL)
+    suspend fun getSiteAnnouncementList(): Response<Collection>
+
+    @GET(Endpoints.SITE_ANNOUNCEMENTS_URL + "/{id}")
+    suspend fun getSiteAnnouncement(@Path("id") id: Int): Response<Resource>
 }

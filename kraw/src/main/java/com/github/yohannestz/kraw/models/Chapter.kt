@@ -1,4 +1,7 @@
-package com.github.yohannestz.kraw.models.models
+package com.github.yohannestz.kraw.models
+
+import com.github.yohannestz.kraw.models.Thumbnail
+import com.github.yohannestz.kraw.models.Titles
 
 data class Chapter (
     val titles: Titles,

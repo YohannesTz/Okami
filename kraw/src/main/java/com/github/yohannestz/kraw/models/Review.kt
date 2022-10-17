@@ -1,4 +1,5 @@
-package com.github.yohannestz.kraw.models.models
+package com.github.yohannestz.kraw.models
+
 @Deprecated("Use media-reactions instead.")
 data class Review(
     val content: String?,
