@@ -11,7 +11,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface KitsuSerivce {
+interface KitsuService {
 
     @GET(Endpoints.ANIME_URL)
     suspend fun getAnimeList(

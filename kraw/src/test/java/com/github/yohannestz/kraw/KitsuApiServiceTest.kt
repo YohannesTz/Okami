@@ -1,14 +1,14 @@
 package com.github.yohannestz.kraw
 
-import com.github.yohannestz.kraw.service.KitsuSerivce
+import com.github.yohannestz.kraw.service.KitsuService
 import junit.framework.Assert.assertNotNull
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 class KitsuApiServiceTest {
-    private val kitsuClient = KitsuClient.getInstance()
-    private val apiService = kitsuClient.create(KitsuSerivce::class.java)
+    private val kitsuClient = KitsuRetrofitClient.getInstance()
+    private val apiService = kitsuClient.create(KitsuService::class.java)
     @Test
     fun getAnimeList() {
         runBlocking {
