@@ -417,7 +417,8 @@ open class KitsuClient {
     }
 
     open suspend fun getComments(postId: Int, parentId: Int, offset: Int): List<Data>? {
-        val response = animeApiService.getCommentList(postId = postId, parentId = parentId, offset = offset)
+        val response =
+            animeApiService.getCommentList(postId = postId, parentId = parentId, offset = offset)
         return response.body()?.data
     }
 
