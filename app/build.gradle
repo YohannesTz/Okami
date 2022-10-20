@@ -49,19 +49,23 @@ kapt {
 
 dependencies {
     //google and androidx
+    def nav_version = "2.5.2"
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.fragment:fragment-ktx:1.5.3'
     implementation 'androidx.core:core-splashscreen:1.0.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     //Paging
     implementation "androidx.paging:paging-runtime-ktx:3.1.1"
 
     //dagger hilt
     implementation 'com.google.dagger:hilt-android:2.44'
+    implementation project(path: ':kraw')
     kapt 'com.google.dagger:hilt-compiler:2.44'
 
 
@@ -88,9 +92,9 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     //firebase
-    implementation 'com.google.firebase:firebase-crashlytics:18.2.13'
-    implementation 'com.google.firebase:firebase-analytics:21.1.1'
-    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.8'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.0'
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
 
     //coil
     implementation('io.coil-kt:coil:2.2.2')

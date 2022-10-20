@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home_bottom_nav"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/exploreFragment"
+        android:icon="@drawable/ic_search"
+        android:title="Explore"/>
+
+    <item
+        android:id="@+id/quickUpdateFragment"
+        android:icon="@drawable/ic_baseline_add_circle_outline_24"
+        android:title="Quick Update"/>
+
+    <item
+        android:id="@+id/notificationFragment"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="Notifications"/>
+</menu>

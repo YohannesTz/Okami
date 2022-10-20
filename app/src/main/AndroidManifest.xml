@@ -15,11 +15,9 @@
         android:name=".App"
         android:icon="@mipmap/ic_launcher_japaneese"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_japaneese_round"
-        android:supportsRtl="true"
         android:theme="@style/CustomSplashScreenTheme">
 
-        <service
+        <!--<service
             android:name=".util.MyFirebaseMessageService"
             android:enabled="true"
             android:exported="true">
@@ -60,9 +58,10 @@
         <activity
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".activities.DetailActivity"
-            android:exported="true" />
+            android:exported="true" /> -->
         <activity
             android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

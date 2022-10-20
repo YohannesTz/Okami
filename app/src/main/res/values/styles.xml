@@ -9,7 +9,7 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:textColorPrimary">@color/md_black_1000_87</item>
-        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/md_black_1000_38</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
 
