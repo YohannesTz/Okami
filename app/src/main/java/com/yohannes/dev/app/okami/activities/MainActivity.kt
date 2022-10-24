@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         navController.addOnDestinationChangedListener { _, _, _ ->
-            if (navController.currentDestination?.id == R.id.homeFragment) {
+            if (navController.currentDestination?.id == R.id.homeFragment || navController.currentDestination?.id == R.id.exploreFragment) {
                 activityMainBinding.toolbar.elevation = 0F
             } else {
                 activityMainBinding.toolbar.elevation = 4F

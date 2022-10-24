@@ -5,26 +5,31 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.yohannes.dev.app.okami.adapters.MediaPagedAdapter
 import com.yohannes.dev.app.okami.databinding.FragmentMediaListingBinding
+import com.yohannes.dev.app.okami.viewmodels.ExploreViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-/**
- * A simple [Fragment] subclass.
- * Use the [MediaListingFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+private const val ARG_PARAM = "LISTING_TYPE"
+
+@AndroidEntryPoint
 class MediaListingFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
 
     private lateinit var mediaListingBinding: FragmentMediaListingBinding
+    private lateinit var mediaPagedAdapter: MediaPagedAdapter
+    private val viewModel by viewModels<ExploreViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            param1 = it.getString(ARG_PARAM)
         }
     }
 
@@ -32,27 +37,60 @@ class MediaListingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_media_listing, container, false)
         mediaListingBinding = FragmentMediaListingBinding.inflate(inflater, container, false)
+        val view = mediaListingBinding.root
+        var listingType: String? = null
+        arguments?.let {
+            listingType = it.getString(ARG_PARAM)
+        }
+        setupRecyclerView()
 
-        return mediaListingBinding.root
+        when (listingType) {
+            "Anime" -> {
+                loadAnimeListing()
+            }
+            "Manga" -> {
+                loadMangaListing()
+            }
+            "User" -> {
+                //loadAnimeListing()
+            }
+            else -> {
+                loadAnimeListing()
+            }
+        }
+
+        return view
+    }
+
+    private fun loadAnimeListing() {
+        lifecycleScope.launch {
+            viewModel
+                .animeListData
+                .collect { pagingData ->
+                    mediaPagedAdapter.submitData(pagingData)
+                }
+        }
+    }
+
+    private fun loadMangaListing() {}
+
+    private fun setupRecyclerView() {
+        mediaPagedAdapter = MediaPagedAdapter()
+        mediaListingBinding.mediaListing.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = mediaPagedAdapter
+            setHasFixedSize(true)
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @return A new instance of fragment MediaListingFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
-        fun newInstance(param1: String) =
+        fun newInstance(listingType : String) =
             MediaListingFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM, param1)
                 }
             }
     }

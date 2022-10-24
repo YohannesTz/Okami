@@ -1,11 +1,18 @@
 package com.yohannes.dev.app.okami.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.yohannes.dev.app.okami.R
+import com.yohannes.dev.app.okami.adapters.MediaListingTabLayoutAdapter
+import com.yohannes.dev.app.okami.adapters.PostListingTabLayoutAdapter
+import com.yohannes.dev.app.okami.databinding.FragmentExploreBinding
+import com.yohannes.dev.app.okami.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +29,14 @@ class ExploreFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var exploreBinding: FragmentExploreBinding
+    var currentTab:Int = 0
+    private val titlesArray = arrayOf(
+        "Anime",
+        "Manga",
+        "Users"
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,9 +48,39 @@ class ExploreFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explore, container, false)
+    ): View {
+        exploreBinding = FragmentExploreBinding.inflate(inflater, container, false)
+        val view =  exploreBinding.root
+
+        val viewPager = exploreBinding.exploreViewPager
+        val tabLayout = exploreBinding.exploreTabLayout
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                currentTab = tabLayout.selectedTabPosition
+                Log.e("TabPos", currentTab.toString())
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                currentTab = tabLayout.selectedTabPosition
+                Log.e("TabPos", currentTab.toString())
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                currentTab = tabLayout.selectedTabPosition
+                Log.e("TabPos", currentTab.toString())
+            }
+        })
+
+        val adapter = MediaListingTabLayoutAdapter(childFragmentManager, lifecycle)
+        viewPager.adapter = adapter
+
+        TabLayoutMediator(tabLayout, viewPager) {tab, position ->
+            tab.text = titlesArray[position]
+        }.attach()
+
+
+        return view
     }
 
     companion object {
