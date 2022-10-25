@@ -54,11 +54,11 @@
         <activity
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".activities.PlayerActivity"
-            android:exported="true" />
+            android:exported="true" />  -->
         <activity
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".activities.DetailActivity"
-            android:exported="true" /> -->
+            android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"

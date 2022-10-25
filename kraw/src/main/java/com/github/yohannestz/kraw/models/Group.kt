@@ -1,6 +1,7 @@
 package com.github.yohannestz.kraw.models
 
 import com.github.yohannestz.kraw.models.Image
+import java.io.Serializable
 
 data class Group(
     val slug: String?,
@@ -19,4 +20,4 @@ data class Group(
     val lastActivityAt: String?,
     val avatar: Avatar?,
     val coverImage: Image
-)
+): Serializable

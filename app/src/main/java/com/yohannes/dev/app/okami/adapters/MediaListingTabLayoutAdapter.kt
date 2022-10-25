@@ -9,7 +9,7 @@ import com.yohannes.dev.app.okami.fragments.PostListingFragment
 
 class MediaListingTabLayoutAdapter (fragmentManager: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
-    private val itemsSize = 3
+    private val itemsSize = 2
 
     override fun getItemCount(): Int {
         return itemsSize
@@ -20,11 +20,8 @@ class MediaListingTabLayoutAdapter (fragmentManager: FragmentManager, lifecycle:
             0 -> {
                 MediaListingFragment.newInstance("Anime")
             }
-            1 -> {
-                MediaListingFragment.newInstance("Manga")
-            }
             else -> {
-                MediaListingFragment.newInstance("Users")
+                MediaListingFragment.newInstance("Manga")
             }
         }
     }

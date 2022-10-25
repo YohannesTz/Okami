@@ -7,14 +7,18 @@ import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.github.yohannestz.kraw.data.network.KitsuClient
 import com.yohannes.dev.app.okami.datasource.AnimePagingSource
+import com.yohannes.dev.app.okami.datasource.MangaPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
-class ExploreViewModel
-    @Inject constructor(kitsuClient: KitsuClient): ViewModel() {
+class ExploreViewModel: ViewModel() {
+    private val kitsuClient = KitsuClient()
     val animeListData = Pager(PagingConfig(pageSize = 1)) {
         AnimePagingSource(kitsuClient)
+    }.flow.cachedIn(viewModelScope)
+
+    val mangaListData = Pager(PagingConfig(pageSize = 1)) {
+        MangaPagingSource(kitsuClient)
     }.flow.cachedIn(viewModelScope)
 
 }

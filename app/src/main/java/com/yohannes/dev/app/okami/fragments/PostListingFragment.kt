@@ -5,29 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.yohannes.dev.app.okami.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.yohannes.dev.app.okami.adapters.PostPagedAdapter
 import com.yohannes.dev.app.okami.databinding.FragmentPostListingBinding
+import com.yohannes.dev.app.okami.viewmodels.HomeViewHolder
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PostListingFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PostListingFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
+    private var postListingType: String? = null
 
     private lateinit var postListingBinding: FragmentPostListingBinding
+    private lateinit var postPagedAdapter: PostPagedAdapter
+    private val viewModel by viewModels<HomeViewHolder>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            postListingType = it.getString(ARG_PARAM1)
         }
     }
 
@@ -38,9 +37,38 @@ class PostListingFragment : Fragment() {
         postListingBinding = FragmentPostListingBinding.inflate(inflater, container, false)
         val view = postListingBinding.root
 
-        postListingBinding.errorText.text = param1
+        setupRecyclerView()
+
+        when (postListingType) {
+            "Following" -> {
+
+            }
+
+            "Global" -> {
+                loadGlobalPosts()
+            }
+        }
 
         return view
+    }
+
+    private fun loadGlobalPosts() {
+        lifecycleScope.launch {
+            viewModel
+                .globalPostList
+                .collect { pagingData ->
+                    postPagedAdapter.submitData(pagingData)
+                }
+        }
+    }
+
+    private fun setupRecyclerView() {
+        postPagedAdapter = PostPagedAdapter()
+        postListingBinding.postListingRecyclerView.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = postPagedAdapter
+            setHasFixedSize(true)
+        }
     }
 
     companion object {

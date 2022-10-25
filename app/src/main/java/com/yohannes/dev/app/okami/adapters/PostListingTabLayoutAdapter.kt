@@ -19,11 +19,8 @@ class PostListingTabLayoutAdapter(fragmentManager: FragmentManager, lifecycle: L
             0 -> {
                 PostListingFragment.newInstance("Following")
             }
-            1 -> {
-                PostListingFragment.newInstance("Global")
-            }
             else -> {
-                PostListingFragment.newInstance("sdfsdf")
+                PostListingFragment.newInstance("Global")
             }
         }
     }

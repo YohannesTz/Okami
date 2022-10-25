@@ -33,8 +33,7 @@ class ExploreFragment : Fragment() {
     var currentTab:Int = 0
     private val titlesArray = arrayOf(
         "Anime",
-        "Manga",
-        "Users"
+        "Manga"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

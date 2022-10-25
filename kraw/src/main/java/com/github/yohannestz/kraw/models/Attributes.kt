@@ -1,6 +1,7 @@
 package com.github.yohannestz.kraw.models
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 @Json(name = "attributes")
 data class Attributes(
@@ -31,4 +32,4 @@ data class Attributes(
     val volumeCount: Int?,
     val serialization: String?,
     val mangaType: String?
-)
+): Serializable

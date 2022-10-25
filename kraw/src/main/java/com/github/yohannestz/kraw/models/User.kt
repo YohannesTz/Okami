@@ -2,6 +2,7 @@ package com.github.yohannestz.kraw.models
 
 import com.github.yohannestz.kraw.models.Avatar
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 data class User(
     val name: String?,
@@ -47,4 +48,4 @@ data class User(
     val status: String?,
     val subscribedToNewsletter: Boolean?,
     val aoPro: String?,
-)
+): Serializable

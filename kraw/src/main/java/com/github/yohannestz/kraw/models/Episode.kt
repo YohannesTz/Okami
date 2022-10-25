@@ -1,6 +1,7 @@
 package com.github.yohannestz.kraw.models
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 data class Episode(
     val titles: Titles?,
@@ -13,4 +14,4 @@ data class Episode(
     val airDate: String?,
     val length: String?,
     val thumbnail: Thumbnail?
-)
+): Serializable

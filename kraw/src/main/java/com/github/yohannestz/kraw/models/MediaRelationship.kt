@@ -1,10 +1,11 @@
 package com.github.yohannestz.kraw.models
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 data class MediaRelationship(
     val role: Role,
-)
+): Serializable
 
 data class Role(
     val adaptation: String?,
@@ -24,4 +25,4 @@ data class Role(
     @Json(name = "spinoff")
     val spinOff: String?,
     val summary: String?
-)
+): Serializable

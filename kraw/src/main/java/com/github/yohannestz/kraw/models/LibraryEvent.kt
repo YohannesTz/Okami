@@ -1,5 +1,7 @@
 package com.github.yohannestz.kraw.models
 
+import java.io.Serializable
+
 data class LibraryEvent(
     val notes: String?,
     val nsfw: Boolean?,
@@ -13,4 +15,4 @@ data class LibraryEvent(
     val status: String?,
     val event: String?,
     //val changedData: -> not enough info was provided
-)
+): Serializable

@@ -28,4 +28,6 @@
     <string name="explore_fragment_title">Explore</string>
     <string name="quick_update_fragment_title">Quick Update</string>
     <string name="notifications_fragment_title">Notifications</string>
+
+    <string name="long_text">The Paging library tracks the state of load requests for paged data and exposes it through the LoadState class. Your app can register a listener with the PagingDataAdapter to receive information about the current state and update the UI accordingly. These states are provided from the adapter because they are synchronous with the UI. This means that your listener receives updates when the page load has been applied to the UI. \n To get the loading state for general use in your UI, use the loadStateFlow stream or the addLoadStateListener() method provided by your PagingDataAdapter. These mechanisms provide access to a CombinedLoadStates object that includes information about the LoadState behavior for each load type.</string>
 </resources>

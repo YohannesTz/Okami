@@ -1,5 +1,7 @@
 package com.github.yohannestz.kraw.models
 
+import java.io.Serializable
+
 data class LibraryEntry(
     val status: String?,
     val progress: Int?,
@@ -14,4 +16,4 @@ data class LibraryEntry(
     val finishedAt: String?,
     val rating: String?,
     val ratingTwenty: Int?
-)
+): Serializable

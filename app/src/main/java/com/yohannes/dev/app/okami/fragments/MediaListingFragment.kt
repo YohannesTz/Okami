@@ -52,15 +52,36 @@ class MediaListingFragment : Fragment() {
             "Manga" -> {
                 loadMangaListing()
             }
-            "User" -> {
-                //loadAnimeListing()
-            }
             else -> {
                 loadAnimeListing()
             }
         }
 
+        mediaListingBinding.mediaListingSwipeContainer.setOnRefreshListener {
+            when (listingType) {
+                "Anime" -> {
+                    refreshAnimeAdapter()
+                }
+                "Manga" -> {
+                    refreshMangaAdapter()
+                }
+                else -> {
+                    //refreshUserAdapter()
+                }
+            }
+        }
+
         return view
+    }
+
+    private fun refreshAnimeAdapter() {
+        mediaPagedAdapter.refresh()
+        mediaListingBinding.mediaListingSwipeContainer.isRefreshing = false
+    }
+
+    private fun refreshMangaAdapter() {
+        mediaPagedAdapter.refresh()
+        mediaListingBinding.mediaListingSwipeContainer.isRefreshing = false
     }
 
     private fun loadAnimeListing() {
@@ -73,7 +94,15 @@ class MediaListingFragment : Fragment() {
         }
     }
 
-    private fun loadMangaListing() {}
+    private fun loadMangaListing() {
+        lifecycleScope.launch {
+            viewModel
+                .mangaListData
+                .collect { pagingData ->
+                    mediaPagedAdapter.submitData(pagingData)
+                }
+        }
+    }
 
     private fun setupRecyclerView() {
         mediaPagedAdapter = MediaPagedAdapter()
@@ -90,7 +119,7 @@ class MediaListingFragment : Fragment() {
         fun newInstance(listingType : String) =
             MediaListingFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM, param1)
+                    putString(ARG_PARAM, listingType)
                 }
             }
     }

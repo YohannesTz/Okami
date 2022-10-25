@@ -1,7 +1,6 @@
 package com.github.yohannestz.kraw.models
 
-import com.github.yohannestz.kraw.models.Thumbnail
-import com.github.yohannestz.kraw.models.Titles
+import java.io.Serializable
 
 data class Chapter (
     val titles: Titles,
@@ -12,4 +11,4 @@ data class Chapter (
     val published: String?,
     val length: String?,
     val thumbnail: Thumbnail
-)
+): Serializable
