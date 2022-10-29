@@ -3,6 +3,7 @@ package com.github.yohannestz.kraw.service
 import androidx.annotation.NonNull
 import com.github.yohannestz.kraw.models.Resource
 import com.github.yohannestz.kraw.models.Collection
+import com.github.yohannestz.kraw.models.PostCollection
 import com.github.yohannestz.kraw.utils.Endpoints
 import org.jetbrains.annotations.NotNull
 import retrofit2.Response
@@ -20,7 +21,7 @@ interface KitsuService {
         @Query("filter[streamers]") streamers: String? = null,
         @Query("filter[ageRating]") ageRating: String? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -30,7 +31,7 @@ interface KitsuService {
     @GET(Endpoints.EPISODE_URL)
     suspend fun getEpisodeList(
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -40,14 +41,14 @@ interface KitsuService {
     @GET(Endpoints.TRENDING_ANIME_URL)
     suspend fun getTrendingAnimeList(
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
     @GET(Endpoints.MANGA_URL)
     suspend fun getMangaList(
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -61,7 +62,7 @@ interface KitsuService {
         @Query("filter[mangaId]") mangaId: Int? = null,
         @Query("filter[number]") number: Int? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -71,7 +72,7 @@ interface KitsuService {
     @GET(Endpoints.TRENDING_MANGA_URL)
     suspend fun getTrendingMangaList(
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -80,7 +81,7 @@ interface KitsuService {
         @Query("filter[parentId]") parentId: Int? = null,
         @Query("filter[slug]") slug: String? = null,
         @Query("filter[nsfw]") nsfw: Boolean? = null,
-        @NotNull
+        
         @Query("page[offset]") offset: Int,
         @Query("page[limit]") pageLimit: Int = 15
     ): Response<Collection>
@@ -93,7 +94,7 @@ interface KitsuService {
         @Query("filter[userId]") userId: Int? = null,
         @Query("filter[categoryId]") categoryId: Int? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -105,7 +106,7 @@ interface KitsuService {
         @Query("filter[role]") role: String? = null,
         @Query("filter[sourceType") sourceType: String? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -127,7 +128,7 @@ interface KitsuService {
     @GET(Endpoints.STREAMERS_URL)
     suspend fun getStreamerList(
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -141,7 +142,7 @@ interface KitsuService {
         @Query("filter[self]") self: Boolean? = null,
         @Query("filter[query]") query: String? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -159,7 +160,7 @@ interface KitsuService {
         @Query("filter[status]") status: String? = null,
         @Query("filter[title]") title: String? = null,
         @Query("filter[userId]") userId: Int? = null,
-        @NotNull
+        
         @Query("page[offset]") offset: Int,
         @Query("page[limit]") pageLimit: Int = 15
     ): Response<Collection>
@@ -172,7 +173,7 @@ interface KitsuService {
         @Query("filter[linkedAccountId]") linkedAccountId: Int? = null,
         @Query("filter[syncStatus]") syncStatus: String? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -183,7 +184,7 @@ interface KitsuService {
     suspend fun getLibraryEventList(
         @Query("filter[userId]") userId: Int? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -201,9 +202,9 @@ interface KitsuService {
     @GET(Endpoints.POSTS_URL)
     suspend fun getPostList(
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
-        @Query("page[offset]") offset: Int
-    ): Response<Collection>
+        @Query("page[offset]") offset: Int,
+        @Query("include") include: String,
+    ): Response<PostCollection>
 
     @GET(Endpoints.POSTS_URL + "/{id}")
     suspend fun getPost(@Path("id") id: Int): Response<Resource>
@@ -213,7 +214,7 @@ interface KitsuService {
         @Query("filter[postId]") postId: Int? = null,
         @Query("filter[parentId]") parentId: Int? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -224,7 +225,7 @@ interface KitsuService {
     suspend fun getAnimeCharacterList(
         @Query("filter[animeId]") animeId: Int? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -235,7 +236,6 @@ interface KitsuService {
     suspend fun getMangaCharacterList(
         @Query("filter[mangaId]") mangaId: Int? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -251,7 +251,7 @@ interface KitsuService {
     @GET(Endpoints.SITE_ANNOUNCEMENTS_URL)
     suspend fun getSiteAnnouncementList(
         @Query("page[limit]") pageLimit: Int = 15,
-        @NotNull
+        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 

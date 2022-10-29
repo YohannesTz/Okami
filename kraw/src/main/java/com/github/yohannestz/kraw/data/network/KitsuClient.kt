@@ -1,16 +1,13 @@
 package com.github.yohannestz.kraw.data.network
 
-import androidx.lifecycle.ViewModel
 import com.github.yohannestz.kraw.KitsuRetrofitClient
 import com.github.yohannestz.kraw.models.Data
+import com.github.yohannestz.kraw.models.PostCollection
 import com.github.yohannestz.kraw.service.KitsuService
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -407,9 +404,9 @@ open class KitsuClient {
         return response.body()?.data
     }
     @Provides
-    open suspend fun getPosts(offset: Int): List<Data>? {
-        val response = kitsuApiService.getPostList(offset = offset)
-        return response.body()?.data
+    open suspend fun getPosts(offset: Int): PostCollection? {
+        val response = kitsuApiService.getPostList(offset = offset, include = "user")
+        return response.body()
     }
     @Provides
     open suspend fun getPostById(id: Int): Data? {

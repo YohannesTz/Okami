@@ -10,6 +10,7 @@ data class Post(
     val nsfw: Boolean?,
     val blocked: Boolean?,
     val deletedAt: String?,
+    val createdAt: String?,
     val topLevelCommentsCount: Int?,
     val editedAt: String?,
     val targetInterest: String?,

@@ -1,24 +1,21 @@
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="?attr/materialCardViewStyle"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="hardcodedText"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="0dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="0dp"
-    android:minHeight="72dp"
-    android:orientation="horizontal"
-    android:padding="12dp"
-    app:cardElevation="8dp">
-
+    android:layout_margin="5dp"
+    app:cardCornerRadius="8dp"
+    card_view:cardElevation="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:orientation="vertical">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,11 +23,13 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/postItemUserProfile"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/colorPlaceHolder"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/circleImageView"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,16 +42,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:text="Emma" />
+                    android:text="Emma" />
 
                 <TextView
                     android:id="@+id/postItemTimeStamp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    tools:text="10 February at 10:02AM" />
+                    android:text="10 February at 10:02AM"
+                    android:textColor="#546E7A" />
             </LinearLayout>
         </LinearLayout>
 
@@ -61,7 +60,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            android:textColor="#546E7A"
+            tools:style=""
+            style="@style/Text.Clickable.Borderless"
             expandableTextView:animDuration="500"
             expandableTextView:collapsedLines="4"
             expandableTextView:isExpanded="false"
@@ -72,83 +74,90 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp"
-            android:background="#F5C1C1C1" />
+            android:background="#F5DCDCDC" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
+            <TextView
                 android:id="@+id/postItemLikeButton"
-                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_weight="1"
                 android:text="Like"
+                android:textSize="16sp"
                 android:textAllCaps="false"
-                android:textSize="20sp"
+                app:iconTint="@color/black"
                 app:icon="@drawable/ic_baseline_favorite_border" />
 
-            <Button
+            <TextView
                 android:id="@+id/postItemCommentButton"
-                style="?android:attr/buttonBarButtonStyle"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Comment"
+                android:textSize="16sp"
                 android:textAllCaps="false"
-                android:textSize="20sp"
+                app:iconTint="@color/black"
                 app:icon="@drawable/ic_baseline_favorite_border" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
-            android:background="#F5C1C1C1" />
+            android:background="#F5DCDCDC" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="5">
+            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
+            <ImageButton
+                android:id="@+id/currentUserImage"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:src="@drawable/ic_baseline_person_24" />
 
             <EditText
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:layout_weight="4"
+                android:layout_weight="5"
                 android:background="@drawable/rounded_corners"
                 android:elevation="1dp"
+                android:hint="Comment"
                 android:imeOptions="actionGo"
-                android:minHeight="48dp"
+                android:inputType="text"
+                android:minHeight="40dp"
                 android:padding="8dp"
                 android:queryHint="Search"
-                android:singleLine="true" />
+                android:singleLine="true"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="50dp"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="90dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:minHeight="48dp"
-                style="@style/Widget.AppCompat.ButtonBar"
-                expandableTextView:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
+                expandableTextView:srcCompat="@drawable/ic_baseline_add_circle_outline_24"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
     </LinearLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</androidx.cardview.widget.CardView>
