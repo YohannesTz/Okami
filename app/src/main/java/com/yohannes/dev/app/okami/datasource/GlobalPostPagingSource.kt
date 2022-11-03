@@ -3,19 +3,22 @@ package com.yohannes.dev.app.okami.datasource
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.github.yohannestz.kraw.data.network.KitsuClient
-import com.github.yohannestz.kraw.models.PostCollection
+import com.github.yohannestz.kraw.models.PostData
 import javax.inject.Inject
 
-class GlobalPostPagingSource @Inject constructor(private val kitsuClient: KitsuClient):  PagingSource<Int, PostCollection>() {
-    override fun getRefreshKey(state: PagingState<Int, PostCollection>): Int? {
+class GlobalPostPagingSource @Inject constructor(private  val kitsuClient: KitsuClient):
+        PagingSource<Int, PostData>() {
+    override fun getRefreshKey(state: PagingState<Int, PostData>): Int? {
         return null
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PostCollection> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PostData> {
         return try {
             val currentPage = params.key?: 1
-            val responseData = mutableListOf<PostCollection>()
-            kitsuClient.getPosts(currentPage)?.let { responseData.add(it) }
+            val responseData = mutableListOf<PostData>()
+            kitsuClient.getPosts(currentPage)?.let {
+                responseData.addAll(it)
+            }
 
             LoadResult.Page(
                 data = responseData,

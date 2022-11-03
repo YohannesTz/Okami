@@ -6,7 +6,8 @@ import com.github.yohannestz.kraw.data.network.KitsuClient
 import com.github.yohannestz.kraw.models.Data
 import javax.inject.Inject
 
-class AnimePagingSource @Inject constructor(private val kitsuClient: KitsuClient): PagingSource<Int, Data>() {
+class AnimePagingSource @Inject constructor(private val kitsuClient: KitsuClient):
+    PagingSource<Int, Data>() {
 
     override fun getRefreshKey(state: PagingState<Int, Data>): Int? {
         return null

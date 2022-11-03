@@ -1,8 +1,10 @@
 package com.github.yohannestz.kraw.data.network
 
+import android.util.Log
 import com.github.yohannestz.kraw.KitsuRetrofitClient
 import com.github.yohannestz.kraw.models.Data
 import com.github.yohannestz.kraw.models.PostCollection
+import com.github.yohannestz.kraw.models.PostData
 import com.github.yohannestz.kraw.service.KitsuService
 import dagger.Module
 import dagger.Provides
@@ -404,9 +406,22 @@ open class KitsuClient {
         return response.body()?.data
     }
     @Provides
-    open suspend fun getPosts(offset: Int): PostCollection? {
+    open suspend fun getPosts(offset: Int): List<PostData>? {
         val response = kitsuApiService.getPostList(offset = offset, include = "user")
-        return response.body()
+        Log.e("postRes", response.body().toString())
+        val postDataList = mutableListOf<PostData>()
+        val body = response.body() as PostCollection
+        val includedList = body.included
+        val dataList = body.data
+
+        for (user in includedList) {
+            val post = dataList[includedList.indexOf(user)]
+            postDataList.add(PostData(post = post.post, user = user))
+        }
+
+        Log.e("postDataList", postDataList.toString())
+
+        return postDataList
     }
     @Provides
     open suspend fun getPostById(id: Int): Data? {

@@ -1,9 +1,9 @@
 package com.github.yohannestz.kraw.models
 
-import com.github.yohannestz.kraw.models.Avatar
 import com.squareup.moshi.Json
 import java.io.Serializable
 
+@Json(name = "attributes")
 data class User(
     val name: String?,
     val slug: String?,
