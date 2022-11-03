@@ -44,6 +44,12 @@
         <item name="android:focusable">true</item>
     </style>
 
+    <style name="ClickableButton" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
     <!-- ImageView -->
     <style name="Image.Clickable" parent="ThemeOverlay.AppCompat">
         <item name="android:background">?attr/selectableItemBackground</item>

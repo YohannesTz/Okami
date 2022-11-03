@@ -408,7 +408,6 @@ open class KitsuClient {
     @Provides
     open suspend fun getPosts(offset: Int): List<PostData>? {
         val response = kitsuApiService.getPostList(offset = offset, include = "user")
-        Log.e("postRes", response.body().toString())
         val postDataList = mutableListOf<PostData>()
         val body = response.body() as PostCollection
         val includedList = body.included
@@ -416,7 +415,7 @@ open class KitsuClient {
 
         for (user in includedList) {
             val post = dataList[includedList.indexOf(user)]
-            postDataList.add(PostData(post = post.post, user = user))
+            postDataList.add(PostData(post = post.attributes, user = user.attributes, postId = post.id, userId = user.id))
         }
 
         Log.e("postDataList", postDataList.toString())

@@ -13,11 +13,19 @@ data class PostCollection(
     @Json(name = "data")
     val data: List<PostChild>,
     @Json(name = "included")
-    val included: List<User>
+    val included: List<UserChild>
 ): Serializable
 
 data class PostChild(
     val id: String?,
+    val type: String?,
     @Json(name = "attributes")
-    val post: Post
+    val attributes: Post?
 ): Serializable
+
+data class UserChild(
+    val id: String?,
+    val type: String?,
+    @Json(name = "attributes")
+    val attributes: User?
+)

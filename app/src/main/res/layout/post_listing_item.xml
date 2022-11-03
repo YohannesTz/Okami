@@ -9,7 +9,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     app:cardCornerRadius="8dp"
-    card_view:cardElevation="5dp">
+    card_view:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,8 +62,6 @@
             android:layout_marginTop="16dp"
             android:textSize="16sp"
             android:textColor="#546E7A"
-            tools:style=""
-            style="@style/Text.Clickable.Borderless"
             expandableTextView:animDuration="500"
             expandableTextView:collapsedLines="4"
             expandableTextView:isExpanded="false"
@@ -72,12 +70,41 @@
             expandableTextView:textMode="line"
             tools:text="@string/long_text" />
 
+        <LinearLayout
+            android:paddingTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/postLikesCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Likes"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                app:iconTint="@color/black" />
+
+            <TextView
+                android:id="@+id/postCommentsCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Comments"
+                android:gravity="end"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                app:iconTint="@color/black" />
+
+        </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp"
             android:background="#F5DCDCDC" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,7 +114,8 @@
                 android:id="@+id/postItemLikeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                tools:style=""
+                style="@style/ClickableButton"
                 android:layout_weight="1"
                 android:text="Like"
                 android:textSize="16sp"
@@ -97,12 +125,13 @@
 
             <TextView
                 android:id="@+id/postItemCommentButton"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Comment"
                 android:textSize="16sp"
+                tools:style=""
+                style="@style/ClickableButton"
                 android:textAllCaps="false"
                 app:iconTint="@color/black"
                 app:icon="@drawable/ic_baseline_favorite_border" />

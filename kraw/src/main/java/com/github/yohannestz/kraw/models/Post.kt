@@ -3,6 +3,7 @@ package com.github.yohannestz.kraw.models
 import com.squareup.moshi.Json
 import java.io.Serializable
 
+@Json(name = "attributes")
 data class Post(
     val createdAt: String?,
     val updatedAt: String?,
