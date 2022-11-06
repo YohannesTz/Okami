@@ -9,6 +9,7 @@ object Endpoints {
     //auth
     const val AUTH_URL = "oauth"
     const val AUTH_URL_TOKEN = "token"
+    const val AUTH_TOKEN_URL = "oauth/token"
 
     //resource
     const val ANIME_URL = "anime"

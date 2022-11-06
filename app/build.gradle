@@ -102,9 +102,10 @@ dependencies {
     //youtube library
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
 
-    //expandable textview and time ago
+    //expandable textview,time ago, shimmer layout
     implementation 'io.github.glailton.expandabletextview:expandabletextview:1.0.2'
     implementation 'com.github.marlonlom:timeago:4.0.3'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -551,7 +551,7 @@ class KitsuApiServiceTest {
                 try {
                     val response = apiService.getPostList(offset = 0, include = "user")
                     assert(response.isSuccessful)
-                    val postList = response.body()!!.attributes
+                    val postList = response.body()!!.data
                     assert(postList.isNotEmpty())
                 } catch (ex: Exception) {
                     print("TestError: " + ex.message.toString())

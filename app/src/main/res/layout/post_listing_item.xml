@@ -55,7 +55,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <io.github.glailton.expandabletextview.ExpandableTextView
+        <TextView
             android:id="@+id/postContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

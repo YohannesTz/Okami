@@ -27,12 +27,5 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <ProgressBar
-        android:id="@+id/postListingProgress"
-        style="?android:attr/progressBarStyle"
-        android:layout_gravity="center"
-        android:visibility="invisible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 </FrameLayout>

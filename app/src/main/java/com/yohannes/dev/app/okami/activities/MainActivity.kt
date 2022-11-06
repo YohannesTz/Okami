@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
+        val splashScreen = installSplashScreen()
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         val view = activityMainBinding.root
         setContentView(view)

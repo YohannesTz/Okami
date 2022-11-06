@@ -1,18 +1,23 @@
 package com.github.yohannestz.kraw.service
 
 import androidx.annotation.NonNull
-import com.github.yohannestz.kraw.models.Resource
+import com.github.yohannestz.kraw.models.*
 import com.github.yohannestz.kraw.models.Collection
-import com.github.yohannestz.kraw.models.PostCollection
 import com.github.yohannestz.kraw.utils.Endpoints
 import org.jetbrains.annotations.NotNull
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface KitsuService {
+
+    @POST(Endpoints.AUTH_TOKEN_URL)
+    suspend fun getToken(
+        @Body tokenRequestBody: TokenRequestBody
+    ): Response<TokenResponse>
 
     @GET(Endpoints.ANIME_URL)
     suspend fun getAnimeList(
@@ -21,7 +26,6 @@ interface KitsuService {
         @Query("filter[streamers]") streamers: String? = null,
         @Query("filter[ageRating]") ageRating: String? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -31,7 +35,6 @@ interface KitsuService {
     @GET(Endpoints.EPISODE_URL)
     suspend fun getEpisodeList(
         @Query("page[limit]") pageLimit: Int = 15,
-        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -41,14 +44,12 @@ interface KitsuService {
     @GET(Endpoints.TRENDING_ANIME_URL)
     suspend fun getTrendingAnimeList(
         @Query("page[limit]") pageLimit: Int = 15,
-        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
     @GET(Endpoints.MANGA_URL)
     suspend fun getMangaList(
         @Query("page[limit]") pageLimit: Int = 15,
-        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -62,7 +63,6 @@ interface KitsuService {
         @Query("filter[mangaId]") mangaId: Int? = null,
         @Query("filter[number]") number: Int? = null,
         @Query("page[limit]") pageLimit: Int = 15,
-        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -72,7 +72,6 @@ interface KitsuService {
     @GET(Endpoints.TRENDING_MANGA_URL)
     suspend fun getTrendingMangaList(
         @Query("page[limit]") pageLimit: Int = 15,
-        
         @Query("page[offset]") offset: Int
     ): Response<Collection>
 
@@ -81,7 +80,6 @@ interface KitsuService {
         @Query("filter[parentId]") parentId: Int? = null,
         @Query("filter[slug]") slug: String? = null,
         @Query("filter[nsfw]") nsfw: Boolean? = null,
-        
         @Query("page[offset]") offset: Int,
         @Query("page[limit]") pageLimit: Int = 15
     ): Response<Collection>
