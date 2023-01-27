@@ -50,10 +50,10 @@ kapt {
 dependencies {
     //google and androidx
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.fragment:fragment-ktx:1.5.3'
+    implementation 'androidx.fragment:fragment-ktx:1.5.5'
     implementation 'androidx.core:core-splashscreen:1.0.0'
 
     //Paging
@@ -77,7 +77,7 @@ dependencies {
     // Coroutine Lifecycle Scopes
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
-    implementation "androidx.activity:activity-ktx:1.6.0"
+    implementation "androidx.activity:activity-ktx:1.6.1"
 
     //dagger-hilt
     implementation 'com.google.dagger:hilt-android:2.44'
@@ -87,9 +87,9 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     //firebase
-    implementation 'com.google.firebase:firebase-crashlytics:18.2.13'
-    implementation 'com.google.firebase:firebase-analytics:21.1.1'
-    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.8'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.3'
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.1'
 
     //coil
     implementation('io.coil-kt:coil:2.2.2')
@@ -100,8 +100,11 @@ dependencies {
     //expandable textview
     implementation 'io.github.glailton.expandabletextview:expandabletextview:1.0.2'
 
+    //shimmer layout
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
     testImplementation 'junit:junit:'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation "androidx.core:core-ktx:1.9.0"
 }

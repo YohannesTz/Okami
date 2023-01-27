@@ -336,6 +336,7 @@
                     android:layout_marginBottom="16dp"
                     android:background="@color/colorPlaceHolder"
                     android:elevation="4dp"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageView"
                     android:scaleType="centerCrop"
                     android:transitionName="poster_image" />
             </FrameLayout>

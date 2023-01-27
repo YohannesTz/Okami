@@ -22,10 +22,9 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     var currentTab:Int = 0
-    val titlesArray = arrayOf(
+    private val titlesArray = arrayOf(
         "Anime",
-        "Manga",
-        "Characters"
+        "Manga"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +54,6 @@ class MainActivity : AppCompatActivity() {
                 currentTab = tabLayout.selectedTabPosition
                 Log.e("TabPos", currentTab.toString())
             }
-
         })
 
         val adapter = TabLayoutAdapter(supportFragmentManager, lifecycle)
