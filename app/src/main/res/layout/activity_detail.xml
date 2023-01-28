@@ -62,6 +62,7 @@
                     android:layout_margin="@dimen/text_margin"
                     android:longClickable="true"
                     android:text="Loading"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +78,7 @@
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:text=""
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:layout_constraintStart_toEndOf="@id/poster"
@@ -92,7 +93,7 @@
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:text="episodes"
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:drawableStartCompat="@drawable/ic_round_timer_24"
@@ -109,7 +110,7 @@
                     android:layout_marginEnd="@dimen/text_margin"
                     android:gravity="center_vertical"
                     android:text="status"
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:drawableStartCompat="@drawable/ic_round_rss_feed_24"
@@ -126,8 +127,8 @@
                     android:layout_marginEnd="@dimen/text_margin"
                     android:gravity="center_vertical"
                     android:text="Unknown"
+                    android:textColor="?attr/colorAccent"
                     tools:text="7.52"
-                    android:textColor="?attr/colorControlNormal"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:drawableStartCompat="@drawable/ic_round_details_star_24"
@@ -153,7 +154,8 @@
                 android:layout_margin="@dimen/text_margin"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/text_margin"
+                android:textColor="?attr/colorAccent"
+                android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginBottom="@dimen/text_margin"
                 app:layout_constraintTop_toBottomOf="@id/genres_scroll"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -174,6 +176,7 @@
                 android:paddingStart="@dimen/text_margin"
                 android:paddingEnd="@dimen/text_margin"
                 app:layout_constraintTop_toBottomOf="@id/translate_button"
+                android:textColor="?attr/colorAccent"
                 android:text="Loading"
                 tools:text="@string/lorem_ipsun" />
 
@@ -182,6 +185,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
+                android:textColor="?attr/colorAccent"
                 android:text="Stats"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -207,7 +211,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="# 24"
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     tools:ignore="HardcodedText"
                     app:drawableTopCompat="@drawable/ic_baseline_favorite_24" />
 
@@ -220,7 +224,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="116,329"
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     tools:ignore="HardcodedText"
                     app:drawableTopCompat="@drawable/ic_round_group_24" />
 
@@ -232,7 +236,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="# 1096"
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     tools:ignore="HardcodedText"
                     app:drawableTopCompat="@drawable/ic_round_trending_up_24" />
 
@@ -244,6 +248,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
                 android:text="MoreInfo"
+                android:textColor="?attr/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/stats_layout"/>
@@ -263,6 +268,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal"
                     android:layout_columnWeight="1"
+                    android:textColor="?attr/colorAccent"
                     android:layout_marginStart="@dimen/text_margin"
                     android:text="Start Date" />
 
@@ -274,13 +280,14 @@
                     android:layout_columnWeight="1"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:text="Sep 7, 2006"
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     tools:ignore="HardcodedText" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal"
+                    android:textColor="?attr/colorAccent"
                     android:layout_columnWeight="1"
                     android:layout_marginStart="@dimen/text_margin"
                     android:text="End Date" />
@@ -293,7 +300,7 @@
                     android:layout_columnWeight="1"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:text="Sep 7, 2006"
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     tools:ignore="HardcodedText" />
 
             </GridLayout>
@@ -306,6 +313,7 @@
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_marginTop="@dimen/text_margin"
                 android:text="Preview"
+                android:textColor="?attr/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/grid_info"/>
@@ -320,6 +328,7 @@
                 app:shapeAppearanceOverlay="@style/circleImageView">
 
                 <ImageView
+                    android:id="@+id/playImage"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:elevation="6dp"

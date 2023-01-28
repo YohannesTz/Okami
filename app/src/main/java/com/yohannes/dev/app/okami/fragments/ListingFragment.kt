@@ -1,28 +1,26 @@
 package com.yohannes.dev.app.okami.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import com.yohannes.dev.app.okami.databinding.FragmentListingBinding
-import com.yohannes.dev.app.okami.enums.ListingType
-import com.yohannes.dev.app.okami.viewmodel.AnimeViewModel
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yohannes.dev.app.okami.R
 import com.yohannes.dev.app.okami.adapter.AnimePagedAdapter
 import com.yohannes.dev.app.okami.adapter.CharacterPagedAdapter
 import com.yohannes.dev.app.okami.adapter.SearchAdapter
+import com.yohannes.dev.app.okami.databinding.FragmentListingBinding
+import com.yohannes.dev.app.okami.enums.ListingType
 import com.yohannes.dev.app.okami.models.Data
+import com.yohannes.dev.app.okami.viewmodel.AnimeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ListingFragment(val listingType: ListingType) : Fragment() {
@@ -31,9 +29,6 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var animeAdapter: AnimePagedAdapter
-    private lateinit var searchAdapter: SearchAdapter
-
-    private lateinit var animeList: ArrayList<Data>
 
     private lateinit var characterAdapter: CharacterPagedAdapter
     private val viewModel by viewModels<AnimeViewModel>()
@@ -68,7 +63,7 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
                         _binding!!.loadingLayout.isVisible = loadStates.refresh is LoadState.Loading
                     }
                 }
-                animeAdapter.submitData(pagingData)
+ //               animeAdapter.submitData(pagingData)
             }
         }
     }
@@ -82,16 +77,6 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
                     }
                 }
                 animeAdapter.submitData(pagingData)
-            }
-        }
-    }
-
-    private fun setupTrendingView() {
-        searchAdapter = SearchAdapter(animeList)
-        if (animeList.size > 0) {
-            binding.recyclerView.apply {
-                layoutManager = LinearLayoutManager(context)
-                adapter = searchAdapter
             }
         }
     }

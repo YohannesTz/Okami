@@ -13,6 +13,7 @@ import com.yohannes.dev.app.okami.R
 import com.yohannes.dev.app.okami.databinding.ActivityDetailBinding
 import com.yohannes.dev.app.okami.models.Data
 
+@Suppress("DEPRECATION")
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
@@ -64,8 +65,9 @@ class DetailActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         } else {
-            binding.preview.visibility = View.INVISIBLE
-            binding.opening.visibility = View.INVISIBLE
+            binding.preview.visibility = View.GONE
+            binding.opening.visibility = View.GONE
+            binding.playImage.visibility = View.GONE
         }
     }
 

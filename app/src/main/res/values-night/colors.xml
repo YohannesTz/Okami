@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Application Colors -->
-    <color name="colorPrimary">@color/md_white_1000</color>
-    <color name="colorPrimaryDark">@color/md_white_1000</color>
-    <color name="fullRippleColor">#C2C2C2</color>
+    <color name="colorPrimary">@color/primary</color>
+    <color name="colorPrimaryDark">@color/accent</color>
     <color name="rippleColor">@color/md_black_1000_12</color>
-    <color name="colorAccent">@color/accent</color>
+    <color name="colorAccent">@color/white</color>
     <color name="actionModeShadow">@color/md_black_1000_38</color>
-    <color name="tabSelectedColor">@color/md_black_1000_54</color>
 
     <color name="textColorPrimary">@color/md_black_1000_87</color>
     <color name="elevated_dark_background">#121212</color>
-    <color name="colorPlaceHolder">#dedede</color>
+    <color name="colorPlaceHolder">@color/md_white_1000_12</color>
+    <color name="tabSelectedColor">@color/md_white_1000_38</color>
 
     <!-- Text Colors -->
     <color name="md_black_1000_87">#DE000000</color>
@@ -26,7 +25,7 @@
     <color name="md_white_1000_20">#33FFFFFF</color>
     <color name="md_white_1000_38">#61FFFFFF</color>
     <color name="md_white_1000_12">#1FFFFFFF</color>
-    <color name="japaneese_background">#4C4C4C</color>
+    <color name="japaneese_background">@color/accent</color>
 
 
     <color name="primary">#101820</color>

@@ -2,7 +2,6 @@ package com.yohannes.dev.app.okami
 
 import android.app.Application
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
@@ -12,7 +11,7 @@ import dagger.hilt.android.HiltAndroidApp
 class App:Application() {
     override fun onCreate() {
         super.onCreate()
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w("FirebaseMessaging", "Fetching FCM registration token failed", task.exception)

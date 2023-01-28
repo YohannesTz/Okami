@@ -23,6 +23,7 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         app:tabBackground="?attr/colorPrimary"
         app:tabIndicator="@drawable/custom_tab_indicator"
         app:tabIndicatorColor="@color/colorAccent"
@@ -30,7 +31,7 @@
         app:tabIndicatorHeight="3dp"
         app:tabMode="auto"
         android:elevation="1dp"
-        app:tabSelectedTextColor="@color/md_black_1000_87"
+        app:tabSelectedTextColor="@color/tabSelectedColor"
         app:tabTextAppearance="@style/NavigationTabTextAppearance"
         app:tabTextColor="?attr/colorAccent"
         tools:ignore="SpeakableTextPresentCheck" />
