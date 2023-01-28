@@ -8,6 +8,7 @@
     <color name="actionModeShadow">@color/md_black_1000_38</color>
 
     <color name="textColorPrimary">@color/md_black_1000_87</color>
+    <color name="textColorSecondary">@color/md_white_1000_54</color>
     <color name="elevated_dark_background">#121212</color>
     <color name="colorPlaceHolder">@color/md_white_1000_12</color>
     <color name="tabSelectedColor">@color/md_white_1000_38</color>

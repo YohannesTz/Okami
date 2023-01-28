@@ -6,12 +6,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.yohannes.dev.app.okami.App
 import com.yohannes.dev.app.okami.R
 import com.yohannes.dev.app.okami.databinding.SettingsActivityBinding
 import com.yohannes.dev.app.okami.util.Constants
-import androidx.core.content.ContextCompat.startActivity
-
-
 
 
 class SettingsActivity : AppCompatActivity() {
@@ -51,12 +49,17 @@ class SettingsActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
                 true
-            }else if (preference?.key == "github") {
+            }else if (preference.key == "github") {
                 val uri = Uri.parse(Constants.GITHUB_ADDRESS)
 
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
-                return true
+                true
+            } else if (preference.key == "theme") {
+                requireActivity().finish()
+                requireActivity().startActivity(Intent(context, App::class.java))
+                requireActivity().finishAffinity()
+                true
             } else false
         }
     }

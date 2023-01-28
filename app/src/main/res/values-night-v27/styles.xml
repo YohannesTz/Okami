@@ -8,11 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:textColorPrimary">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:textColorTertiary">@color/textColorSecondary</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
-
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
-
     </style>
 </resources>

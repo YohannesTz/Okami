@@ -2,37 +2,17 @@
 
     <PreferenceCategory app:title="General Settings">
 
-        <!-- <SwitchPreferenceCompat
-            app:key="adult"
-            app:title="Show 18+ Content"/> -->
-
         <SwitchPreferenceCompat
-            app:key="notifications"
-            app:enabled="true"
-            app:title="Enable push notifications"/>
+            app:key="adult"
+            app:title="Show 18+ Content"/>
 
-        <!-- <ListPreference
-            app:defaultValue="10"
-            app:entries="@array/items_per_page"
-            app:entryValues="@array/items_per_page"
-            app:key="items_per_page"
-            app:title="Items per page"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:defaultValue="Light"
+        <DropDownPreference
+            app:defaultValue="1"
             app:entries="@array/theme"
-            app:entryValues="@array/theme"
+            app:entryValues="@array/themeValues"
             app:key="theme"
             app:title="Theme"
-            app:useSimpleSummaryProvider="true" /> -->
-
-        <SwitchPreferenceCompat
-            app:key="send_analytics"
-            app:title="Send analaytics"
-            app:enabled="true"
-            app:summary="Analytics help me to make the app better"/>
-
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="About">
@@ -40,7 +20,7 @@
         <Preference
             app:title="Version"
             app:key="version"
-            app:summary="1.0.0" />
+            app:summary="1.0.2" />
 
         <Preference
             app:key="me"

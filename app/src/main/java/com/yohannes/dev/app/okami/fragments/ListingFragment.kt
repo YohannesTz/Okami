@@ -43,10 +43,6 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
                 setupRecyclerView()
                 loadAnimeData()
             }
-            ListingType.CHARACTER -> {
-                setupRecyclerView()
-                //loadCharacterData()
-            }
             else -> {
                 setupRecyclerView()
                 loadMangaData()
@@ -63,7 +59,7 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
                         _binding!!.loadingLayout.isVisible = loadStates.refresh is LoadState.Loading
                     }
                 }
- //               animeAdapter.submitData(pagingData)
+                animeAdapter.submitData(pagingData)
             }
         }
     }

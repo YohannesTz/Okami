@@ -17,6 +17,7 @@
         app:menu="@menu/appbarmenu"
         app:title="@string/app_name"
         android:elevation="1dp"
+        app:popupTheme="@style/PopupStyle"
         android:theme="?attr/actionBarTheme" />
 
     <com.google.android.material.tabs.TabLayout

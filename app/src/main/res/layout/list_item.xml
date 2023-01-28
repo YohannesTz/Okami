@@ -10,7 +10,7 @@
     android:layout_marginEnd="15dp"
     android:layout_marginTop="15dp"
     android:background="?attr/colorPrimary"
-    app:cardElevation="8dp"
+    app:cardElevation="2dp"
     android:minHeight="72dp">
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
