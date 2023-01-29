@@ -54,7 +54,7 @@ class App:Application() {
         })
     }
 
-    fun checkIfNight(): Boolean {
+    private fun checkIfNight(): Boolean {
         val start = 21
         val end = 7
         val hours = 24 - start + end

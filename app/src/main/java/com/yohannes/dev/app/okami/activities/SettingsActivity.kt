@@ -36,31 +36,38 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         override fun onPreferenceTreeClick(preference: Preference): Boolean {
-            return if (preference.key == "send_feedback") {
-                val emailIntent = Intent(Intent.ACTION_SENDTO)
-                emailIntent.data = Uri.parse("mailto:")
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, Constants.EMAIL_ADDRESS)
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Personal feedback")
-                startActivity(Intent.createChooser(emailIntent, "Send Email"))
-                true
-            } else if (preference.key == "telegram") {
-                val uri = Uri.parse(Constants.TELEGRAM_ADDRESS)
+            return when (preference.key) {
+                "send_feedback" -> {
+                    val emailIntent = Intent(Intent.ACTION_SENDTO)
+                    emailIntent.data = Uri.parse("mailto:")
+                    emailIntent.putExtra(Intent.EXTRA_EMAIL, Constants.EMAIL_ADDRESS)
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Personal feedback")
+                    startActivity(Intent.createChooser(emailIntent, "Send Email"))
+                    true
+                }
+                "telegram" -> {
+                    val uri = Uri.parse(Constants.TELEGRAM_ADDRESS)
 
-                val intent = Intent(Intent.ACTION_VIEW, uri)
-                startActivity(intent)
-                true
-            }else if (preference.key == "github") {
-                val uri = Uri.parse(Constants.GITHUB_ADDRESS)
+                    val intent = Intent(Intent.ACTION_VIEW, uri)
+                    startActivity(intent)
+                    true
+                }
+                "github" -> {
+                    val uri = Uri.parse(Constants.GITHUB_ADDRESS)
 
-                val intent = Intent(Intent.ACTION_VIEW, uri)
-                startActivity(intent)
-                true
-            } else if (preference.key == "theme") {
-                requireActivity().finish()
-                requireActivity().startActivity(Intent(context, App::class.java))
-                requireActivity().finishAffinity()
-                true
-            } else false
+                    val intent = Intent(Intent.ACTION_VIEW, uri)
+                    startActivity(intent)
+                    true
+                }
+                /*"theme" -> {
+                    requireActivity().finish()
+                    requireActivity().startActivity(Intent(context, MainActivity::class.java))
+                    requireActivity().finishAffinity()
+                    //requireActivity().recreate()
+                    true
+                }*/
+                else -> false
+            }
         }
     }
 }

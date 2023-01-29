@@ -10,7 +10,7 @@
     <color name="tabSelectedColor">@color/md_black_1000_54</color>
 
     <color name="textColorPrimary">@color/md_black_1000_87</color>
-    <color name="textColorSecondary">@color/md_white_1000_85</color>
+    <color name="textColorSecondary">@color/md_white_1000_30</color>
     <color name="elevated_dark_background">#121212</color>
     <color name="colorPlaceHolder">#D1D0D0</color>
 
@@ -25,6 +25,7 @@
     <color name="md_white_1000_76">#C2FFFFFF</color>
     <color name="md_white_1000_54">#8AFFFFFF</color>
     <color name="md_white_1000_50">#80FFFFFF</color>
+    <color name="md_white_1000_30">#6c757d</color>
     <color name="md_white_1000_20">#33FFFFFF</color>
     <color name="md_white_1000_38">#61FFFFFF</color>
     <color name="md_white_1000_12">#1FFFFFFF</color>

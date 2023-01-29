@@ -6,7 +6,7 @@
             app:key="adult"
             app:title="Show 18+ Content"/>
 
-        <DropDownPreference
+        <com.yohannes.dev.app.okami.customview.ThemePreference
             app:defaultValue="1"
             app:entries="@array/theme"
             app:entryValues="@array/themeValues"

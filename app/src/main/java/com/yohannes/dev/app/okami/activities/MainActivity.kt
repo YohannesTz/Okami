@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         "Anime",
         "Manga"
     )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()

@@ -1,4 +1,4 @@
-package com.yohannes.dev.app.okami.customeview
+package com.yohannes.dev.app.okami.customview
 
 import android.content.Context
 import android.util.AttributeSet
