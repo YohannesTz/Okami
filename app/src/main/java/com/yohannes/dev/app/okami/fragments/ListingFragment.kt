@@ -12,18 +12,20 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yohannes.dev.app.okami.adapter.AnimePagedAdapter
 import com.yohannes.dev.app.okami.adapter.CharacterPagedAdapter
-import com.yohannes.dev.app.okami.adapter.SearchAdapter
 import com.yohannes.dev.app.okami.databinding.FragmentListingBinding
 import com.yohannes.dev.app.okami.enums.ListingType
-import com.yohannes.dev.app.okami.models.Data
 import com.yohannes.dev.app.okami.viewmodel.AnimeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+private const val LISTING_TYPE = "listingType"
+
 @AndroidEntryPoint
-class ListingFragment(val listingType: ListingType) : Fragment() {
+class ListingFragment() : Fragment() {
+
+    private var listingType: String? = null
 
     private var _binding: FragmentListingBinding? = null
     private val binding get() = _binding!!
@@ -33,13 +35,20 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
     private lateinit var characterAdapter: CharacterPagedAdapter
     private val viewModel by viewModels<AnimeViewModel>()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            listingType = it.getString(LISTING_TYPE)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentListingBinding.inflate(inflater, container, false)
         val view = binding.root
         _binding!!.loadingLayout.startShimmer()
         when (listingType) {
-            ListingType.ANIME -> {
+            ListingType.ANIME.toString() -> {
                 setupRecyclerView()
                 loadAnimeData()
             }
@@ -85,5 +94,15 @@ class ListingFragment(val listingType: ListingType) : Fragment() {
             adapter = animeAdapter
             setHasFixedSize(true)
         }
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(listingType: ListingType) =
+            ListingFragment().apply {
+                arguments = Bundle().apply {
+                    putString(LISTING_TYPE, listingType.toString())
+                }
+            }
     }
 }

@@ -1,15 +1,14 @@
 package com.yohannes.dev.app.okami.customview
 
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceManager
-import com.yohannes.dev.app.okami.R
 import java.util.*
 
 class ThemePreference : ListPreference {
@@ -23,6 +22,13 @@ class ThemePreference : ListPreference {
 
     constructor(context: Context?) : super(context!!)
 
+    /*override fun onSaveInstanceState(): Parcelable? {
+        val sharedPreference = PreferenceManager.getDefaultSharedPreferences(context)
+        val themeId = sharedPreference.getString("theme", "1")
+        setValueIndex(entryValues.indexOf(Integer.parseInt(themeId!!)))
+        return super.onSaveInstanceState()
+    }*/
+
     override fun onClick() {
         val builder = AlertDialog.Builder(context).setSingleChoiceItems(entries,getValueIndex())
         { dialog, index ->
@@ -32,23 +38,24 @@ class ThemePreference : ListPreference {
                 val sharedPreference = PreferenceManager.getDefaultSharedPreferences(context)
                 val editor = sharedPreference.edit()
                 Log.e("selectedIndex", index.toString())
-                editor.putString("theme", index.toString())
+                Log.e("entryValue", entryValues[index].toString())
+                editor.putString("theme", entryValues[index].toString())
                 editor.apply()
 
-                /*when (index.toString()) {
-                    "1" -> {
+                when (entryValues[index].toString()) {
+                    "Light" -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                     }
-                    "2" -> {
+                    "Dark" -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                     }
-                    "3" -> {
+                    "Follow System" -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                     }
-                    "4" -> {
+                    "Save Battery" -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
                     }
-                    "5" -> {
+                    "Follow Time" -> {
                         if (checkIfNight()) {
                             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                         } else {
@@ -58,11 +65,12 @@ class ThemePreference : ListPreference {
                     else -> {
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                     }
-                }*/
+                }
             }
             dialog.dismiss()
-            val activity = context as Activity
-            activity.recreate()
+            notifyChanged()
+            /*val activity = context as Activity
+            activity.recreate()*/
         }.setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }.setTitle(title)
 
         val dialog = builder.create()

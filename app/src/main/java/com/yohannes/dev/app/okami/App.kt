@@ -9,28 +9,33 @@ import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.HiltAndroidApp
 import java.util.*
 
+
 @HiltAndroidApp
 class App:Application() {
     override fun onCreate() {
         super.onCreate()
         //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         val sharedPreference = PreferenceManager.getDefaultSharedPreferences(baseContext)
-        val themeId = sharedPreference.getString("theme", "1")
+        val themeId = sharedPreference.getString("theme", "Light")
         Log.e("themeId", themeId.toString())
+
+        val themes = resources.getStringArray(R.array.theme)
+
+//        when (themes[Integer.parseInt(themeId!!)]) {
         when (themeId) {
-            "1" -> {
+            "Light" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
-            "2" -> {
+            "Dark" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
-            "3" -> {
+            "Follow System" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             }
-            "4" -> {
+            "Save Battery" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
             }
-            "5" -> {
+            "Follow Time" -> {
                 if (checkIfNight()) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 } else {

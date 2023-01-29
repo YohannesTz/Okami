@@ -1,30 +1,58 @@
 package com.yohannes.dev.app.okami.activities
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatCallback
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.view.ActionMode
+import androidx.core.view.WindowInsetsControllerCompat
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.yohannes.dev.app.okami.R
 import com.yohannes.dev.app.okami.databinding.ActivityPlayerBinding
 
-class PlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
+
+class PlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener,
+    AppCompatCallback {
 
     private lateinit var binding: ActivityPlayerBinding
     private lateinit var passedVideoId: String
+    private var delegate: AppCompatDelegate? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        delegate = AppCompatDelegate.create(this, this);
+        delegate!!.onCreate(savedInstanceState);
         binding = ActivityPlayerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        delegate!!.setTheme(R.style.AppTheme)
+        delegate!!.setContentView(binding.root)
+
+        changeStatusBarColor(R.color.colorPrimary, isDarkMode(applicationContext))
 
         passedVideoId = intent.getStringExtra("videoId") as String
         //doesn't work don't waste your time
         binding.ytPv.initialize(getString(R.string.apiKey), this)
     }
+
+    private fun isDarkMode(context: Context): Boolean {
+        val darkModeFlag = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return darkModeFlag == Configuration.UI_MODE_NIGHT_YES
+    }
+
+    private fun changeStatusBarColor(color: Int, isLight: Boolean) {
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = color
+        window.navigationBarColor = color
+
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = isLight
+    }
+
 
     override fun onInitializationSuccess(
         p0: YouTubePlayer.Provider?,
@@ -58,5 +86,17 @@ class PlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onSupportActionModeStarted(mode: ActionMode?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onSupportActionModeFinished(mode: ActionMode?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onWindowStartingSupportActionMode(callback: ActionMode.Callback?): ActionMode? {
+        TODO("Not yet implemented")
     }
 }

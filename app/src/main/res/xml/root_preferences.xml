@@ -1,3 +1,4 @@
+
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory app:title="General Settings">
@@ -7,9 +8,9 @@
             app:title="Show 18+ Content"/>
 
         <com.yohannes.dev.app.okami.customview.ThemePreference
-            app:defaultValue="1"
+            app:defaultValue="Light"
             app:entries="@array/theme"
-            app:entryValues="@array/themeValues"
+            app:entryValues="@array/theme"
             app:key="theme"
             app:title="Theme"
             app:useSimpleSummaryProvider="true" />
