@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="?attr/materialCardViewStyle"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -32,8 +31,7 @@
                 android:background="@color/colorPlaceHolder"
                 android:scaleType="centerCrop"
                 android:transitionName="poster_image"
-                android:contentDescription="Poster"
-                tools:ignore="HardcodedText" />
+                android:contentDescription="@string/poster" />
 
         </FrameLayout>
 

@@ -12,7 +12,7 @@ import com.yohannes.dev.app.okami.activities.DetailActivity
 import com.yohannes.dev.app.okami.databinding.ListItemBinding
 import com.yohannes.dev.app.okami.models.Data
 
-class AnimePagedAdapter:PagingDataAdapter<Data, AnimePagedAdapter.MyViewHolder>(diffCallback) {
+class ItemPagedAdapter:PagingDataAdapter<Data, ItemPagedAdapter.MyViewHolder>(diffCallback) {
 
     inner class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root)
 

@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:focusable="true"
-    android:background="?attr/colorSurface"
     android:animateLayoutChanges="true"
     tools:context=".activities.OpenActivity">
 
@@ -20,11 +19,16 @@
         android:layout_gravity="center"/>
 
     <ScrollView
-        android:id="@+id/details_scroll"
+        android:id="@+id/detailsScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
         android:visibility="invisible"
-        android:scrollbars="none">
+        tools:visibility="visible"
+        android:animateLayoutChanges="true"
+        tools:context=".activities.DetailActivity">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -76,7 +80,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/text_margin"
                     android:longClickable="true"
-                    android:text="Loading"
+                    android:text="@string/loading"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +97,7 @@
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:text=""
-                    android:textColor="?attr/colorControlNormal"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:layout_constraintStart_toEndOf="@id/poster"
@@ -106,8 +111,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
-                    android:text="episodes"
-                    android:textColor="?attr/colorControlNormal"
+                    tools:text="@string/episodes"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:drawableStartCompat="@drawable/ic_round_timer_24"
@@ -123,8 +128,8 @@
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:gravity="center_vertical"
-                    android:text="status"
-                    android:textColor="?attr/colorControlNormal"
+                    tools:text="@string/status"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:drawableStartCompat="@drawable/ic_round_rss_feed_24"
@@ -140,9 +145,8 @@
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:gravity="center_vertical"
-                    android:text="Unknown"
-                    tools:text="7.52"
-                    android:textColor="?attr/colorControlNormal"
+                    tools:text="@string/unknown"
+                    android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:drawableStartCompat="@drawable/ic_round_details_star_24"
@@ -164,27 +168,15 @@
                 android:id="@+id/translate_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Discription"
+                android:text="@string/discription"
                 android:layout_margin="@dimen/text_margin"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/text_margin"
+                android:textColor="?attr/colorAccent"
+                android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginBottom="@dimen/text_margin"
                 app:layout_constraintTop_toBottomOf="@id/genres_scroll"
                 app:layout_constraintStart_toStartOf="parent" />
-
-            <!--<TextView
-                android:id="@+id/synopsis"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/translate_button"
-                android:layout_marginTop="8dp"
-                android:ellipsize="end"
-                android:paddingStart="@dimen/text_margin"
-                android:paddingEnd="@dimen/text_margin"
-                android:text="Loading"
-                app:layout_constraintTop_toBottomOf="@id/translate_button"
-                tools:text="@string/lorem_ipsun" /> -->
 
             <io.github.glailton.expandabletextview.ExpandableTextView
                 android:id="@+id/synopsis"
@@ -202,7 +194,8 @@
                 android:paddingStart="@dimen/text_margin"
                 android:paddingEnd="@dimen/text_margin"
                 app:layout_constraintTop_toBottomOf="@id/translate_button"
-                android:text="Loading"
+                android:textColor="?attr/colorAccent"
+                android:text="@string/loading"
                 tools:text="@string/lorem_ipsun" />
 
             <TextView
@@ -210,7 +203,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
-                android:text="Stats"
+                android:textColor="?attr/colorAccent"
+                android:text="@string/stats"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/synopsis"
@@ -234,9 +228,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="# 24"
-                    android:textColor="?attr/colorControlNormal"
-                    tools:ignore="HardcodedText"
+                    tools:text="@string/number_placeholder_24"
+                    android:textColor="?attr/colorAccent"
                     app:drawableTopCompat="@drawable/ic_baseline_favorite_24" />
 
 
@@ -247,9 +240,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="116,329"
-                    android:textColor="?attr/colorControlNormal"
-                    tools:ignore="HardcodedText"
+                    tools:text="@string/number_placeholder_24"
+                    android:textColor="?attr/colorAccent"
                     app:drawableTopCompat="@drawable/ic_round_group_24" />
 
                 <TextView
@@ -259,9 +251,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="# 1096"
-                    android:textColor="?attr/colorControlNormal"
-                    tools:ignore="HardcodedText"
+                    tools:text="@string/number_placeholder_24"
+                    android:textColor="?attr/colorAccent"
                     app:drawableTopCompat="@drawable/ic_round_trending_up_24" />
 
             </LinearLayout>
@@ -271,7 +262,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
-                android:text="MoreInfo"
+                android:text="@string/moreinfo"
+                android:textColor="?attr/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/stats_layout"/>
@@ -291,8 +283,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal"
                     android:layout_columnWeight="1"
+                    android:textColor="?attr/colorAccent"
                     android:layout_marginStart="@dimen/text_margin"
-                    android:text="Start Date" />
+                    android:text="@string/start_date" />
 
                 <TextView
                     android:id="@+id/start_date"
@@ -301,17 +294,17 @@
                     android:layout_gravity="fill_horizontal"
                     android:layout_columnWeight="1"
                     android:layout_marginEnd="@dimen/text_margin"
-                    android:text="Sep 7, 2006"
-                    android:textColor="?attr/colorControlNormal"
-                    tools:ignore="HardcodedText" />
+                    tools:text="@string/sep_7_2006"
+                    android:textColor="?attr/colorAccent"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="fill_horizontal"
+                    android:textColor="?attr/colorAccent"
                     android:layout_columnWeight="1"
                     android:layout_marginStart="@dimen/text_margin"
-                    android:text="End Date" />
+                    android:text="@string/end_date" />
 
                 <TextView
                     android:id="@+id/end_date"
@@ -320,9 +313,8 @@
                     android:layout_gravity="fill_horizontal"
                     android:layout_columnWeight="1"
                     android:layout_marginEnd="@dimen/text_margin"
-                    android:text="Sep 7, 2006"
-                    android:textColor="?attr/colorControlNormal"
-                    tools:ignore="HardcodedText" />
+                    tools:text="@string/sep_7_2006"
+                    android:textColor="?attr/colorAccent"/>
 
             </GridLayout>
 
@@ -333,42 +325,47 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_marginTop="@dimen/text_margin"
-                android:text="Preview"
+                android:text="@string/preview"
+                android:textColor="?attr/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/grid_info"/>
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/preview"
-                android:layout_width="0dp"
-                android:layout_height="225dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:background="@color/colorPlaceHolder"
-                android:elevation="4dp"
-                android:scaleType="centerCrop"
-                android:transitionName="poster_image"
+            <FrameLayout
+                android:id="@+id/preview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/opening"
-                app:shapeAppearanceOverlay="@style/circleImageView" />
+                app:shapeAppearanceOverlay="@style/circleImageView">
+
+                <ImageView
+                    android:id="@+id/playImage"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:elevation="6dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_play_circle_filled_24"
+                    android:contentDescription="@string/play_preview_button" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="225dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/colorPlaceHolder"
+                    android:elevation="4dp"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+                    android:scaleType="centerCrop"
+                    android:transitionName="poster_image" />
+            </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
     </ScrollView>
-
-    <!-- <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/edit_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:text="Save"
-        android:textColor="@color/colorTextInverted"
-        app:iconTint="@color/colorTextInverted"
-        app:icon="@drawable/ic_baseline_save_24"/> -->
 
 </FrameLayout>

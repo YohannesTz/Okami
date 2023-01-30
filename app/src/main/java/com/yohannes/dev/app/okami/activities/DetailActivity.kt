@@ -1,12 +1,11 @@
 package com.yohannes.dev.app.okami.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import coil.load
 import com.yohannes.dev.app.okami.R
@@ -29,7 +28,6 @@ class DetailActivity : AppCompatActivity() {
 
 
         passedItem = intent.getSerializableExtra("currentItem") as Data
-        Log.e("DetailActivity", passedItem.toString())
 
         val imageLink = passedItem.attributes.posterImage?.medium
 
@@ -54,7 +52,6 @@ class DetailActivity : AppCompatActivity() {
 
         val thumbnail = "https://img.youtube.com/vi/${passedItem.attributes.youtubeVideoId}/0.jpg"
         if (passedItem.type == "anime" && passedItem.attributes.youtubeVideoId?.isNotEmpty() == true) {
-            Log.e("Thumbnail", thumbnail)
             binding.preview.load(thumbnail) {
                 crossfade(true)
                 crossfade(800)

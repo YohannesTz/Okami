@@ -2,12 +2,11 @@ package com.yohannes.dev.app.okami.activities
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import coil.load
 import com.yohannes.dev.app.okami.R
@@ -17,7 +16,6 @@ import com.yohannes.dev.app.okami.di.AppModule
 import com.yohannes.dev.app.okami.models.Data
 import com.yohannes.dev.app.okami.util.Constants
 import kotlinx.coroutines.launch
-import java.lang.NumberFormatException
 
 class OpenActivity : AppCompatActivity() {
 
@@ -67,7 +65,6 @@ class OpenActivity : AppCompatActivity() {
 
         val thumbnail = "https://img.youtube.com/vi/${foundData?.attributes?.youtubeVideoId}/0.jpg"
         if (foundData?.type == "anime" && foundData?.attributes?.youtubeVideoId?.isNotEmpty() == true) {
-            Log.e("Thumbnail", thumbnail)
             binding.preview.load(thumbnail) {
                 crossfade(true)
                 crossfade(800)
@@ -83,25 +80,22 @@ class OpenActivity : AppCompatActivity() {
         }
     }
 
-    suspend fun loadItem(slug: String?) : Data? {
-        Log.e("Load Item", "load started")
+    private suspend fun loadItem(slug: String?) : Data? {
         try {
             val id = Integer.parseInt(slug!!)
 
             val apiService: ApiService = AppModule.provideRetrofitInstance(Constants.BASE_URL)
             val response = apiService.findByID(id)
-            val data = response.body()?.data
 
-            return data
-        } catch (e : NumberFormatException) {
+            return response.body()?.data
+        } catch (e: NumberFormatException) {
             val apiService: ApiService = AppModule.provideRetrofitInstance(Constants.BASE_URL)
             val response = apiService.findBySlug(slug!!)
             val data = response.body()?.data ?: emptyList()
             val responseData = arrayListOf<Data>()
             responseData.addAll(data)
-            Log.e("Load Item", "load String finished")
             if (responseData.size > 0) {
-                return responseData.get(0)
+                return responseData[0]
             }
             return null
         }

@@ -22,4 +22,26 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_github">Github</string>
     <string name="menu_search">Search</string>
+    <string name="loading">Loading</string>
+    <string name="episodes">episodes</string>
+    <string name="status">status</string>
+    <string name="unknown">Unknown</string>
+    <string name="discription">Description</string>
+    <string name="stats">Stats</string>
+    <string name="number_placeholder_24"># 24</string>
+    <string name="moreinfo">MoreInfo</string>
+    <string name="start_date">Start Date</string>
+    <string name="sep_7_2006">Sep 7, 2006</string>
+    <string name="end_date">End Date</string>
+    <string name="preview">Preview</string>
+    <string name="play_preview_button">Play preview button</string>
+    <string name="no_connection">No Connection</string>
+    <string name="try_again">Try Again</string>
+    <string name="poster">Poster</string>
+    <string name="title_place_holder">Boku no Pico</string>
+    <string name="tv_episodes_placeholder">TV (25 Episodes)</string>
+    <string name="rating_placeholder">8.74</string>
+    <string name="japaneese_title_placeholder">頭文字〈イニシャル〉</string>
+    <string name="settings_title">Settings</string>
+    <string name="search">Search</string>
 </resources>

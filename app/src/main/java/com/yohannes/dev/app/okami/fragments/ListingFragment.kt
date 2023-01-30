@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yohannes.dev.app.okami.adapter.AnimePagedAdapter
-import com.yohannes.dev.app.okami.adapter.CharacterPagedAdapter
+import com.yohannes.dev.app.okami.adapter.ItemPagedAdapter
 import com.yohannes.dev.app.okami.databinding.FragmentListingBinding
 import com.yohannes.dev.app.okami.enums.ListingType
 import com.yohannes.dev.app.okami.viewmodel.AnimeViewModel
@@ -30,9 +28,7 @@ class ListingFragment() : Fragment() {
     private var _binding: FragmentListingBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var animeAdapter: AnimePagedAdapter
-
-    private lateinit var characterAdapter: CharacterPagedAdapter
+    private lateinit var itemsAdapter: ItemPagedAdapter
     private val viewModel by viewModels<AnimeViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,17 +39,20 @@ class ListingFragment() : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentListingBinding.inflate(inflater, container, false)
         val view = binding.root
-        _binding!!.loadingLayout.startShimmer()
+        _binding!!.shimmerLayout.startShimmer()
+        setupRecyclerView()
+        _binding!!.retryButton.setOnClickListener {
+            itemsAdapter.refresh()
+        }
         when (listingType) {
             ListingType.ANIME.toString() -> {
-                setupRecyclerView()
                 loadAnimeData()
             }
             else -> {
-                setupRecyclerView()
                 loadMangaData()
             }
         }
@@ -62,36 +61,64 @@ class ListingFragment() : Fragment() {
 
     private fun loadAnimeData() {
         lifecycleScope.launchWhenCreated {
-            viewModel.listData.collect{ pagingData ->
+            viewModel.listData.collect { pagingData ->
                 launch(Dispatchers.Main) {
-                    animeAdapter.loadStateFlow.collectLatest { loadStates ->
-                        _binding!!.loadingLayout.isVisible = loadStates.refresh is LoadState.Loading
+                    _binding!!.retryButton.setOnClickListener {
+                        itemsAdapter.refresh()
+                    }
+                    itemsAdapter.loadStateFlow.collectLatest { loadStates ->
+                        when (loadStates.refresh) {
+                            is LoadState.Loading -> {
+                                _binding!!.loadingLayout.visibility = View.VISIBLE
+                                _binding!!.errorLayout.visibility = View.GONE
+                            }
+                            is LoadState.Error -> {
+                                _binding!!.errorLayout.visibility = View.VISIBLE
+                                _binding!!.loadingLayout.visibility = View.GONE
+                            }
+                            is LoadState.NotLoading -> {
+                                _binding!!.loadingLayout.visibility = View.GONE
+                                _binding!!.errorLayout.visibility = View.GONE
+                            }
+                        }
                     }
                 }
-                animeAdapter.submitData(pagingData)
+                itemsAdapter.submitData(pagingData)
             }
         }
     }
 
     private fun loadMangaData() {
         lifecycleScope.launchWhenCreated {
-            viewModel.mangaData.collect{ pagingData ->
+            viewModel.mangaData.collect { pagingData ->
                 launch(Dispatchers.Main) {
-                    animeAdapter.loadStateFlow.collectLatest { loadStates ->
-                        _binding!!.loadingLayout.isVisible = loadStates.refresh is LoadState.Loading
+                    itemsAdapter.loadStateFlow.collectLatest { loadStates ->
+                        when (loadStates.refresh) {
+                            is LoadState.Loading -> {
+                                _binding!!.loadingLayout.visibility = View.VISIBLE
+                                _binding!!.errorLayout.visibility = View.GONE
+                            }
+                            is LoadState.Error -> {
+                                _binding!!.errorLayout.visibility = View.VISIBLE
+                                _binding!!.loadingLayout.visibility = View.GONE
+                            }
+                            is LoadState.NotLoading -> {
+                                _binding!!.loadingLayout.visibility = View.GONE
+                                _binding!!.errorLayout.visibility = View.GONE
+                            }
+                        }
                     }
                 }
-                animeAdapter.submitData(pagingData)
+                itemsAdapter.submitData(pagingData)
             }
         }
     }
 
     private fun setupRecyclerView() {
-        animeAdapter = AnimePagedAdapter()
-        characterAdapter = CharacterPagedAdapter()
+        itemsAdapter = ItemPagedAdapter()
         _binding!!.recyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = animeAdapter
+            adapter = itemsAdapter
             setHasFixedSize(true)
         }
     }

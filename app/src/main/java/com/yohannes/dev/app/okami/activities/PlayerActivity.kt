@@ -27,8 +27,8 @@ class PlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        delegate = AppCompatDelegate.create(this, this);
-        delegate!!.onCreate(savedInstanceState);
+        delegate = AppCompatDelegate.create(this, this)
+        delegate!!.onCreate(savedInstanceState)
         binding = ActivityPlayerBinding.inflate(layoutInflater)
         delegate!!.setTheme(R.style.AppTheme)
         delegate!!.setContentView(binding.root)
@@ -88,13 +88,9 @@ class PlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onSupportActionModeStarted(mode: ActionMode?) {
-        TODO("Not yet implemented")
-    }
+    override fun onSupportActionModeStarted(mode: ActionMode?) {} // we will leave this empty for now
 
-    override fun onSupportActionModeFinished(mode: ActionMode?) {
-        TODO("Not yet implemented")
-    }
+    override fun onSupportActionModeFinished(mode: ActionMode?) {} // we will leave this empty for now
 
     override fun onWindowStartingSupportActionMode(callback: ActionMode.Callback?): ActionMode? {
         TODO("Not yet implemented")

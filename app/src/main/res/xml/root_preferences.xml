@@ -3,9 +3,10 @@
 
     <PreferenceCategory app:title="General Settings">
 
+        <!-- I am disabling this because all NSFW content is behind authenticated request
         <SwitchPreferenceCompat
             app:key="adult"
-            app:title="Show 18+ Content"/>
+            app:title="Show 18+ Content"/>-->
 
         <com.yohannes.dev.app.okami.customview.ThemePreference
             app:defaultValue="Light"
@@ -27,7 +28,7 @@
             app:key="me"
             app:title="Me"
             app:persistent="false"
-            app:summary="hi I am yohannes, a computer science student.I am a mobile and web developer, I am passionate about technology. \nI love collaborating and making connections.I am open to internships and remote jobs.Please feel free also to message me"/>
+            app:summary="hi I am yohannes, I am a motivated computer science student with a passion for mobile and web development. I enjoy exploring the latest technologies and staying up to date with industry trends. I am open to internships and remote jobs. Please feel free also to message me"/>
 
         <Preference
             app:title="Send feedback"

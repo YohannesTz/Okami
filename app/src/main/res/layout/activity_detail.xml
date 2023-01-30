@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/text_margin"
                     android:longClickable="true"
-                    android:text="Loading"
+                    android:text="@string/loading"
                     android:textColor="?attr/colorAccent"
                     android:textSize="22sp"
                     android:textStyle="bold"
@@ -92,7 +92,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
-                    android:text="episodes"
+                    tools:text="@string/episodes"
                     android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
@@ -109,7 +109,7 @@
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:gravity="center_vertical"
-                    android:text="status"
+                    tools:text="@string/status"
                     android:textColor="?attr/colorAccent"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
@@ -126,9 +126,8 @@
                     android:layout_marginStart="@dimen/text_margin"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:gravity="center_vertical"
-                    android:text="Unknown"
+                    tools:text="@string/unknown"
                     android:textColor="?attr/colorAccent"
-                    tools:text="7.52"
                     android:textSize="16sp"
                     android:drawablePadding="8dp"
                     app:drawableStartCompat="@drawable/ic_round_details_star_24"
@@ -150,7 +149,7 @@
                 android:id="@+id/translate_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Discription"
+                android:text="@string/discription"
                 android:layout_margin="@dimen/text_margin"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -177,7 +176,7 @@
                 android:paddingEnd="@dimen/text_margin"
                 app:layout_constraintTop_toBottomOf="@id/translate_button"
                 android:textColor="?attr/colorAccent"
-                android:text="Loading"
+                android:text="@string/loading"
                 tools:text="@string/lorem_ipsun" />
 
             <TextView
@@ -186,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
                 android:textColor="?attr/colorAccent"
-                android:text="Stats"
+                android:text="@string/stats"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/synopsis"
@@ -210,9 +209,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="# 24"
+                    tools:text="@string/number_placeholder_24"
                     android:textColor="?attr/colorAccent"
-                    tools:ignore="HardcodedText"
                     app:drawableTopCompat="@drawable/ic_baseline_favorite_24" />
 
 
@@ -223,9 +221,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="116,329"
+                    tools:text="@string/number_placeholder_24"
                     android:textColor="?attr/colorAccent"
-                    tools:ignore="HardcodedText"
                     app:drawableTopCompat="@drawable/ic_round_group_24" />
 
                 <TextView
@@ -235,9 +232,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="# 1096"
+                    tools:text="@string/number_placeholder_24"
                     android:textColor="?attr/colorAccent"
-                    tools:ignore="HardcodedText"
                     app:drawableTopCompat="@drawable/ic_round_trending_up_24" />
 
             </LinearLayout>
@@ -247,7 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/text_margin"
-                android:text="MoreInfo"
+                android:text="@string/moreinfo"
                 android:textColor="?attr/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -270,7 +266,7 @@
                     android:layout_columnWeight="1"
                     android:textColor="?attr/colorAccent"
                     android:layout_marginStart="@dimen/text_margin"
-                    android:text="Start Date" />
+                    android:text="@string/start_date" />
 
                 <TextView
                     android:id="@+id/start_date"
@@ -279,9 +275,8 @@
                     android:layout_gravity="fill_horizontal"
                     android:layout_columnWeight="1"
                     android:layout_marginEnd="@dimen/text_margin"
-                    android:text="Sep 7, 2006"
-                    android:textColor="?attr/colorAccent"
-                    tools:ignore="HardcodedText" />
+                    tools:text="@string/sep_7_2006"
+                    android:textColor="?attr/colorAccent"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -290,7 +285,7 @@
                     android:textColor="?attr/colorAccent"
                     android:layout_columnWeight="1"
                     android:layout_marginStart="@dimen/text_margin"
-                    android:text="End Date" />
+                    android:text="@string/end_date" />
 
                 <TextView
                     android:id="@+id/end_date"
@@ -299,9 +294,8 @@
                     android:layout_gravity="fill_horizontal"
                     android:layout_columnWeight="1"
                     android:layout_marginEnd="@dimen/text_margin"
-                    android:text="Sep 7, 2006"
-                    android:textColor="?attr/colorAccent"
-                    tools:ignore="HardcodedText" />
+                    tools:text="@string/sep_7_2006"
+                    android:textColor="?attr/colorAccent"/>
 
             </GridLayout>
 
@@ -312,7 +306,7 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_marginTop="@dimen/text_margin"
-                android:text="Preview"
+                android:text="@string/preview"
                 android:textColor="?attr/colorAccent"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -333,7 +327,8 @@
                     android:layout_height="80dp"
                     android:elevation="6dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_baseline_play_circle_filled_24"/>
+                    android:src="@drawable/ic_baseline_play_circle_filled_24"
+                    android:contentDescription="@string/play_preview_button" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/preview"

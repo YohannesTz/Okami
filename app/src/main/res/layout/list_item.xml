@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="?attr/materialCardViewStyle"
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -32,15 +31,13 @@
                 android:background="@color/colorPlaceHolder"
                 android:scaleType="centerCrop"
                 android:transitionName="poster_image"
-                android:contentDescription="Poster"
-                tools:ignore="HardcodedText" />
+                android:contentDescription="@string/poster" />
 
         </FrameLayout>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:orientation="vertical">
 
             <TextView
@@ -50,20 +47,20 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:layout_marginTop="8dp"
-                android:text="Boku no Pico"
-                android:textColor="?attr/colorAccent"                android:maxLines="1"
+                android:text="@string/title_place_holder"
+                android:textColor="?attr/colorAccent"
+                android:maxLines="1"
                 android:ellipsize="end"
-                android:textSize="16sp"
-                tools:ignore="HardcodedText" />
+                android:textSize="16sp" />
             <TextView
                 android:id="@+id/media_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginTop="8dp"
-                android:text="TV (25 Episodes)"
-                android:textColor="?attr/colorAccent"                android:maxLines="1"
-                tools:ignore="HardcodedText" />
+                android:text="@string/tv_episodes_placeholder"
+                android:textColor="?attr/colorAccent"
+                android:maxLines="1" />
             <TextView
                 android:id="@+id/score"
                 android:layout_width="wrap_content"
@@ -71,9 +68,9 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="8.74"
-                android:textColor="?attr/colorAccent"                android:maxLines="1"
-                tools:ignore="HardcodedText" />
+                android:text="@string/rating_placeholder"
+                android:textColor="?attr/colorAccent"
+                android:maxLines="1"/>
             <TextView
                 android:id="@+id/jptitle"
                 android:layout_width="wrap_content"
@@ -81,9 +78,9 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="頭文字〈イニシャル〉"
-                android:textColor="?attr/colorAccent"                android:maxLines="1"
-                tools:ignore="HardcodedText" />
+                android:text="@string/japaneese_title_placeholder"
+                android:textColor="?attr/colorAccent"
+                android:maxLines="1"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

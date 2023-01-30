@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import com.yohannes.dev.app.okami.App
 import com.yohannes.dev.app.okami.R
 import com.yohannes.dev.app.okami.databinding.SettingsActivityBinding
 import com.yohannes.dev.app.okami.util.Constants
@@ -59,13 +58,6 @@ class SettingsActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-                /*"theme" -> {
-                    requireActivity().finish()
-                    requireActivity().startActivity(Intent(context, MainActivity::class.java))
-                    requireActivity().finishAffinity()
-                    //requireActivity().recreate()
-                    true
-                }*/
                 else -> false
             }
         }

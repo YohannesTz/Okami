@@ -22,7 +22,6 @@
         <item>Dark</item>
         <item>Follow System</item>
         <item>Save Battery</item>
-        <item>Follow Time</item>
     </string-array>
 
     <string-array name="themeValues">
@@ -30,7 +29,6 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
-        <item>5</item>
     </string-array>
 
 </resources>
