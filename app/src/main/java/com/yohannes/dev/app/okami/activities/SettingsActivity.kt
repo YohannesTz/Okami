@@ -10,11 +10,9 @@ import com.yohannes.dev.app.okami.R
 import com.yohannes.dev.app.okami.databinding.SettingsActivityBinding
 import com.yohannes.dev.app.okami.util.Constants
 
-
 class SettingsActivity : AppCompatActivity() {
 
-    lateinit var binding: SettingsActivityBinding
-
+    private lateinit var binding: SettingsActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = SettingsActivityBinding.inflate(layoutInflater)
