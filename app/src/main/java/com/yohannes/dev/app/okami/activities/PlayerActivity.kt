@@ -3,6 +3,7 @@ package com.yohannes.dev.app.okami.activities
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
@@ -70,6 +71,7 @@ class PlayerActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListene
         p0: YouTubePlayer.Provider?,
         p1: YouTubeInitializationResult?
     ) {
+        Log.e("res: ", p1.toString())
         Toast.makeText(this, "Initialization failed", Toast.LENGTH_SHORT).show()
     }
 
