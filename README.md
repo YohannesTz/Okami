@@ -18,11 +18,11 @@ icons from [Icons8](https://icons8.com/)
 
 # Preview
 <p align="center">
-    <img src="/preview/Screenshot_20211230_201400.png" width="30%" height="30%" alt="screenshot">
-    <img src="/preview/Screenshot_20211230_201429.png" width="30%" height="30%" alt="screenshot">
-    <img src="/preview/Screenshot_20211230_201459.png" width="30%" height="30%" alt="screenshot">
-    <img src="/preview/Screenshot_20211230_201524.png" width="30%" height="30%" alt="screenshot">
-    <img src="/preview/Screenshot_20211230_202149.png" width="30%" height="30%" alt="screenshot">
+    <img src="/preview/google_pixel_4_1.png" width="30%" height="30%" alt="screenshot">
+    <img src="/preview/google_pixel_4_2.png" width="30%" height="30%" alt="screenshot">
+    <img src="/preview/google_pixel_4_3.png" width="30%" height="30%" alt="screenshot">
+    <img src="/preview/google_pixel_4_4.png" width="30%" height="30%" alt="screenshot">
+    <img src="/preview/google_pixel_4_5.png" width="30%" height="30%" alt="screenshot">
 </p>
 
 # MIT License (MIT)
